@@ -35,7 +35,7 @@ public class PastTravelDetailsService {
 					BookingDetailsHistory bookingHistory = new BookingDetailsHistory();
 					BookingDetails bookingDetail = bookingDetails.get(i);
 					bookingHistory.setArrival(bookingDetail.getArrival());
-					bookingHistory.setdeparture(bookingDetail.getDeparture());
+					bookingHistory.setDeparture(bookingDetail.getDeparture());
 					bookingHistory.setFlightId(bookingDetail.getFlightId());
 					bookingHistory.setPrice(bookingDetail.getPrice());
 					bookingHistory.setTicketId(bookingDetail.getTicketId());

@@ -41,7 +41,6 @@ public class TravellerDetails {
 	
 	@ManyToOne
 	@JoinColumn(name="booking_id", nullable=false)
-	//@Column(name = "booking_details")
 	private BookingDetails bookingDetails;
 
 	public Long getId() {
@@ -83,12 +82,6 @@ public class TravellerDetails {
 	public void setTravellerGender(String travellerGender) {
 		this.travellerGender = travellerGender;
 	}
-	/*
-	 * public BookingDetails getBookingDetails() { return bookingDetails; }
-	 * 
-	 * public void setBookingDetails(BookingDetails bookingDetails) {
-	 * this.bookingDetails = bookingDetails; }
-	 */
 
 	@Override
 	public String toString() {
