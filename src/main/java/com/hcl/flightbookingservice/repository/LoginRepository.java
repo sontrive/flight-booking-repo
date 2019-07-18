@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import com.hcl.flightbookingservice.entity.Login;
 
 @Repository
-public interface LoginRepository extends JpaRepository<Login, Integer> {
+public interface LoginRepository extends JpaRepository<Login, Long> {
 
 	@Query(value = "select * from logindetails where user_name =?1", nativeQuery = true)
 	Login findByUserName(String userName);
