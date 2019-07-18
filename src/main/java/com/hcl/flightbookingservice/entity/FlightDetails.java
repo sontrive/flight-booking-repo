@@ -39,6 +39,9 @@ public class FlightDetails {
 	
 	@Column(name="price")
 	private double price;
+	
+	@Column(name="duration")
+	private double duration;
 
 	public long getId() {
 		return id;
@@ -103,13 +106,23 @@ public class FlightDetails {
 	public void setPrice(double price) {
 		this.price = price;
 	}
+	
+	public double getDuration() {
+		return duration;
+	}
+
+	public void setDuration(double duration) {
+		this.duration = duration;
+	}
 
 	@Override
 	public String toString() {
-		return "FlightDetails [id=" + id + ", flight_id=" + flightId + ", flight_name=" + flightName + ", boarding="
+		return "FlightDetails [id=" + id + ", flightId=" + flightId + ", flightName=" + flightName + ", boarding="
 				+ boarding + ", destination=" + destination + ", dateOfJourney=" + dateOfJourney + ", timeOfJourney="
-				+ timeOfJourney + ", price=" + price + "]";
+				+ timeOfJourney + ", price=" + price + ", duration=" + duration + "]";
 	}
+
+	
 	
 	
 	
