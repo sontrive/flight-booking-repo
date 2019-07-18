@@ -27,17 +27,17 @@ public class BookFlightController {
 	 * @return 
 	 */
 	@PostMapping("/bookflight")
-	public ResponseEntity<?> bookFlight(@RequestBody BookFlightRequest bookFlightRequest){
+	public ResponseEntity<Object> bookFlight(@RequestBody BookFlightRequest bookFlightRequest){
 		BookFlightResponse bookFlight = null;
 		try {
 			bookFlight = bookFlightService.bookFlight(bookFlightRequest);
 		}catch (ApplicationException ex) {
-			return new ResponseEntity<String>(ex.getMessage(), HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
 		}
 		catch (Exception e) {
-			return new ResponseEntity<String>(e.getCause().getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		 
-		return new ResponseEntity<BookFlightResponse>(bookFlight, HttpStatus.OK);
+		return new ResponseEntity<>(bookFlight, HttpStatus.OK);
 	}
 }
