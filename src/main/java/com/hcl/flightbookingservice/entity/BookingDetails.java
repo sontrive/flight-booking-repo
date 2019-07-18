@@ -36,8 +36,8 @@ public class BookingDetails {
 
 	@NotNull
 	@OneToOne
-	@JoinColumn(name="login_id", nullable=false)
-	private Login Login;
+	@JoinColumn(name = "login_id", nullable = false)
+	private Login login;
 
 	@NotNull
 	@Column(name = "price")
@@ -88,14 +88,6 @@ public class BookingDetails {
 		this.flightId = flightId;
 	}
 
-	public Login getLogin() {
-		return Login;
-	}
-
-	public void setLogin(Login login) {
-		Login = login;
-	}
-
 	public Double getPrice() {
 		return price;
 	}
@@ -144,18 +136,23 @@ public class BookingDetails {
 		this.travelTime = travelTime;
 	}
 
+	public Login getLogin() {
+		return login;
+	}
+
+	public void setLogin(Login login) {
+		this.login = login;
+	}
+
 	@Override
 	public String toString() {
 		final int maxLen = 10;
-		return "BookingDetails [id=" + id + ", ticketId=" + ticketId + ", flightId=" + flightId + ", Login=" + Login
+		return "BookingDetails [id=" + id + ", ticketId=" + ticketId + ", flightId=" + flightId + ", login=" + login
 				+ ", price=" + price + ", travellerDetails="
 				+ (travellerDetails != null ? travellerDetails.subList(0, Math.min(travellerDetails.size(), maxLen))
 						: null)
 				+ ", arrival=" + arrival + ", departure=" + departure + ", travelDate=" + travelDate + ", travelTime="
 				+ travelTime + "]";
 	}
-
-	
-	
 
 }
