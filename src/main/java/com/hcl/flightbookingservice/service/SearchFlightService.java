@@ -25,44 +25,44 @@ public class SearchFlightService {
 		
 	}
 	
-public Optional<List<FlightDetails>> searchFlightDetailsBasedOnFlightName(String flightName){
+public List<FlightDetails> searchFlightDetailsBasedOnFlightName(String flightName){
 		
 		return searchFlightRepository.findByOrderByFlightNameAsc();
 					
 }
 
-public Optional<List<FlightDetails>> searchFlightDetailsBasedOnBorading(String boarding){
+public List<FlightDetails> searchFlightDetailsBasedOnBorading(String boarding){
 	
 	return searchFlightRepository.findByOrderByBoardingAsc();
 				
 }
 
-public Optional<List<FlightDetails>> searchFlightDetailsBasedOnDestination(String destination){
+public List<FlightDetails> searchFlightDetailsBasedOnDestination(String destination){
 	
 	return searchFlightRepository.findByOrderByDestinationAsc();
 				
 }
 
-public Optional<List<FlightDetails>> searchFlightDetailsBasedOnDateOfJourney(LocalDate localDate){
+public List<FlightDetails> searchFlightDetailsBasedOnDateOfJourney(LocalDate localDate){
 	
 	return searchFlightRepository.findByOrderByDateOfJourneyAsc();
 				
 }
 
-public Optional<List<FlightDetails>> searchFlightDetailsBasedOnTimeOfJourney(LocalTime localTime){
+public List<FlightDetails> searchFlightDetailsBasedOnTimeOfJourney(LocalTime localTime){
 	
 	return searchFlightRepository.findByOrderByTimeOfJourneyAsc();
 				
 }
 
-public Optional<List<FlightDetails>> searchFlightDetailsBasedOnPrice(double price){
+public List<FlightDetails> searchFlightDetailsBasedOnPrice(double price){
 	
 	return searchFlightRepository.findByOrderByPriceAsc();
 				
 }
 
 
-public Optional<List<FlightDetails>> searchFlightDetailsBasedOnDuration(double duration){
+public List<FlightDetails> searchFlightDetailsBasedOnDuration(double duration){
 	
 	return searchFlightRepository.findByOrderByDurationAsc();
 				
