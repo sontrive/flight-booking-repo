@@ -48,12 +48,6 @@ public class BookFlightService {
 
 		Login login = new Login();
 		BeanUtils.copyProperties(savedLogin, login);
-		
-		/*
-		 * login.setLoginId(savedLogin.getLoginId());
-		 * login.setPassword(savedLogin.getPassword());
-		 * login.setUserName(savedLogin.getUserName());
-		 */
 		bookingDetails.setLogin(login);
 
 		FlightDetails flightDetails = searchFlightRepository.findByflightId(bookFlightRequest.getFlightId());
@@ -71,15 +65,6 @@ public class BookFlightService {
 		for (Person person : personList) {
 			TravellerDetails travellerDetails = new TravellerDetails();
 			BeanUtils.copyProperties(person, travellerDetails);
-			
-			/*
-			 * travellerDetails.setTravellerAge(person.getTravellerAge());
-			 * travellerDetails.setTravellerGender(person.getTravellerGender());
-			 * travellerDetails.setTravellerMealPref(person.getTravellerMealPref());
-			 * travellerDetails.setTravellerName(person.getTravellerName());
-			 */
-			
-			travellerDetails.setBookingDetails(saveBookingDetails);
 			travellerDetailsRepository.save(travellerDetails);
 		}
 
