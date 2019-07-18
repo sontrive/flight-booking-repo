@@ -44,13 +44,13 @@ public Optional<List<FlightDetails>> searchFlightDetailsBasedOnDestination(Strin
 				
 }
 
-public Optional<List<FlightDetails>> searchFlightDetailsBasedOnDateOfJourney(LocalDate localDate){
+public Optional<List<FlightDetails>> searchFlightDetailsBasedOnDateOfJourney(String dateOfJourney){
 	
 	return searchFlightRepository.findByOrderByDateOfJourneyAsc();
 				
 }
 
-public Optional<List<FlightDetails>> searchFlightDetailsBasedOnTimeOfJourney(LocalTime localTime){
+public Optional<List<FlightDetails>> searchFlightDetailsBasedOnTimeOfJourney(String localTime){
 	
 	return searchFlightRepository.findByOrderByTimeOfJourneyAsc();
 				

@@ -1,9 +1,5 @@
 package com.hcl.flightbookingservice.entity;
 
-import java.sql.Date;
-import java.time.Duration;
-import java.time.LocalDate;
-import java.time.LocalTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -33,10 +29,10 @@ public class FlightDetails {
 	private String destination;
 	
 	@Column(name="date_of_journey")
-	private LocalDate dateOfJourney;
+	private String dateOfJourney;
 	
 	@Column(name="time_of_journey")
-	private LocalTime timeOfJourney;
+	private String timeOfJourney;
 	
 	@Column(name="price")
 	private double price;
@@ -84,19 +80,19 @@ public class FlightDetails {
 		this.destination = destination;
 	}
 
-	public LocalDate getDateOfJourney() {
+	public String getDateOfJourney() {
 		return dateOfJourney;
 	}
 
-	public void setDateOfJourney(LocalDate dateOfJourney) {
+	public void setDateOfJourney(String dateOfJourney) {
 		this.dateOfJourney = dateOfJourney;
 	}
 
-	public LocalTime getTimeOfJourney() {
+	public String getTimeOfJourney() {
 		return timeOfJourney;
 	}
 
-	public void setTimeOfJourney(LocalTime timeOfJourney) {
+	public void setTimeOfJourney(String timeOfJourney) {
 		this.timeOfJourney = timeOfJourney;
 	}
 
