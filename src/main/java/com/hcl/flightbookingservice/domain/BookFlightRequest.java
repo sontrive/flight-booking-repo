@@ -1,7 +1,6 @@
 package com.hcl.flightbookingservice.domain;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.validation.constraints.NotNull;
@@ -32,13 +31,10 @@ public class BookFlightRequest {
 	@NotNull(message = "Departure is missing.")
 	private String departure;
 	
-	@NotNull(message = "Travel Date is missing.")
-	private LocalDate  travelDate;
+	@NotNull(message = "Travel Date/time is missing.")
+	private LocalDateTime  travelDateTime;
 	
 	
-	@NotNull(message = "Travel Time is missing.")
-	private LocalTime  travelTime;
-
 	public String getFlightId() {
 		return flightId;
 	}
@@ -88,22 +84,6 @@ public class BookFlightRequest {
 		this.departure = departure;
 	}
 
-	public LocalDate getTravelDate() {
-		return travelDate;
-	}
-
-	public void setTravelDate(LocalDate travelDate) {
-		this.travelDate = travelDate;
-	}
-
-	public LocalTime getTravelTime() {
-		return travelTime;
-	}
-
-	public void setTravelTime(LocalTime travelTime) {
-		this.travelTime = travelTime;
-	}
-
 	public String getUserName() {
 		return userName;
 	}
@@ -112,14 +92,23 @@ public class BookFlightRequest {
 		this.userName = userName;
 	}
 
+	public LocalDateTime getTravelDateTime() {
+		return travelDateTime;
+	}
+
+	public void setTravelDateTime(LocalDateTime travelDateTime) {
+		this.travelDateTime = travelDateTime;
+	}
+
 	@Override
 	public String toString() {
 		final int maxLen = 10;
 		return "BookFlightRequest [flightId=" + flightId + ", flightName=" + flightName + ", userName=" + userName
 				+ ", numberOfPerson=" + numberOfPerson + ", person="
 				+ (person != null ? person.subList(0, Math.min(person.size(), maxLen)) : null) + ", arrival=" + arrival
-				+ ", departure=" + departure + ", travelDate=" + travelDate + ", travelTime=" + travelTime + "]";
+				+ ", departure=" + departure + ", travelDateTime=" + travelDateTime + "]";
 	}
 
+	
 
 }
