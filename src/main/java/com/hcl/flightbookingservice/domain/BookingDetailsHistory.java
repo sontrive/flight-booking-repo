@@ -14,11 +14,11 @@ public class BookingDetailsHistory {
 
 	private Double price;
 	
-	private List<TravellerDetails> TravalerDetails;
+	private List<TravellerDetails> travellerDetails;
 	
 	private String arrival;
 	
-	private String deaparture;
+	private String departure;
 	
 	private LocalDate  travelDate;
 	
@@ -48,12 +48,12 @@ public class BookingDetailsHistory {
 		this.price = price;
 	}
 
-	public List<TravellerDetails> getTravalerDetails() {
-		return TravalerDetails;
+	public List<TravellerDetails> getTravellerDetails() {
+		return travellerDetails;
 	}
 
-	public void setTravalerDetails(List<TravellerDetails> travalerDetails) {
-		TravalerDetails = travalerDetails;
+	public void setTravellerDetails(List<TravellerDetails> travellerDetails) {
+		this.travellerDetails = travellerDetails;
 	}
 
 	public String getArrival() {
@@ -65,11 +65,11 @@ public class BookingDetailsHistory {
 	}
 
 	public String getDeaparture() {
-		return deaparture;
+		return departure;
 	}
 
-	public void setDeaparture(String deaparture) {
-		this.deaparture = deaparture;
+	public void setdeparture(String departure) {
+		this.departure = departure;
 	}
 
 	public LocalDate getTravelDate() {

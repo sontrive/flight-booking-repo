@@ -19,17 +19,18 @@ public class PastTravelDetailsService {
 	public List<BookingDetailsHistory> getPastTravelDetails(String userName) {
 
 		List<BookingDetailsHistory> bookingDetailsHistory = new ArrayList<>();
-		List<BookingDetails> bookingDetails = pastTravelDetailsRepository.findAll();
+		List<BookingDetails> bookingDetails = pastTravelDetailsRepository.findByUserName(userName);
+		System.out.println(bookingDetails.size());
 		if (null != bookingDetails && !bookingDetails.isEmpty()) {
 			for (int i = 0; i < bookingDetails.size(); i++) {
 				BookingDetailsHistory bookingHistory = new BookingDetailsHistory();
 				BookingDetails bookingDetail = bookingDetails.get(i);
 				bookingHistory.setArrival(bookingDetail.getArrival());
-				bookingHistory.setDeaparture(bookingDetail.getDeparture());
+				bookingHistory.setdeparture(bookingDetail.getDeparture());
 				bookingHistory.setFlightId(bookingDetail.getFlightId());
 				bookingHistory.setPrice(bookingDetail.getPrice());
 				bookingHistory.setTicketId(bookingDetail.getTicketId());
-				bookingHistory.setTravalerDetails(bookingDetail.getTravellerDetails());
+				bookingHistory.setTravellerDetails(bookingDetail.getTravellerDetails());
 				bookingHistory.setTravelDate(bookingDetail.getTravelDate());
 				bookingHistory.setTravelTime(bookingDetail.getTravelTime());
 
