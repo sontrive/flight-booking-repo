@@ -20,10 +20,17 @@ public class FlightDetails {
 	private long id;
 	
 	@Column(name="flight_id")
+<<<<<<< HEAD
 	private String flight_id;
 	
 	@Column(name="flight_name")
 	private String  flight_name;
+=======
+	private String flightId;
+	
+	@Column(name="flight_name")
+	private String  flightName;
+>>>>>>> ed6031f54e6825e05124c3dd1f054f92fe01670d
 	
 	@Column(name="boarding")
 	private String boarding;
@@ -48,6 +55,7 @@ public class FlightDetails {
 		this.id = id;
 	}
 
+<<<<<<< HEAD
 	public String getFlight_id() {
 		return flight_id;
 	}
@@ -62,6 +70,22 @@ public class FlightDetails {
 
 	public void setFlight_name(String flight_name) {
 		this.flight_name = flight_name;
+=======
+	public String getFlightId() {
+		return flightId;
+	}
+
+	public void setFlightId(String flightId) {
+		this.flightId = flightId;
+	}
+
+	public String getFlightName() {
+		return flightName;
+	}
+
+	public void setFlightName(String flightName) {
+		this.flightName = flightName;
+>>>>>>> ed6031f54e6825e05124c3dd1f054f92fe01670d
 	}
 
 	public String getBoarding() {
@@ -106,7 +130,11 @@ public class FlightDetails {
 
 	@Override
 	public String toString() {
+<<<<<<< HEAD
 		return "FlightDetails [id=" + id + ", flight_id=" + flight_id + ", flight_name=" + flight_name + ", boarding="
+=======
+		return "FlightDetails [id=" + id + ", flight_id=" + flightId + ", flight_name=" + flightName + ", boarding="
+>>>>>>> ed6031f54e6825e05124c3dd1f054f92fe01670d
 				+ boarding + ", destination=" + destination + ", dateOfJourney=" + dateOfJourney + ", timeOfJourney="
 				+ timeOfJourney + ", price=" + price + "]";
 	}
