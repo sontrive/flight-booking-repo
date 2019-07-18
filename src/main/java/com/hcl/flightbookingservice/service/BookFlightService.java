@@ -38,17 +38,22 @@ public class BookFlightService {
 	public BookFlightResponse bookFlight(BookFlightRequest bookFlightRequest) throws ApplicationException {
 
 		BookFlightResponse bookFlightResponse = new BookFlightResponse();
+		
 		BookingDetails bookingDetails = new BookingDetails();
 		bookingDetails.setArrival(bookFlightRequest.getArrival());
 		bookingDetails.setDeparture(bookFlightRequest.getDeparture());
 		bookingDetails.setFlightId(bookFlightRequest.getFlightId());
 
-		Login userName = loginRepository.findByUserName(bookFlightRequest.getUserName());
+		Login savedLogin = loginRepository.findByUserName(bookFlightRequest.getUserName());
 
 		Login login = new Login();
-		login.setLoginId(userName.getLoginId());
-		login.setPassword(userName.getPassword());
-		login.setUserName(userName.getUserName());
+		BeanUtils.copyProperties(savedLogin, login);
+		
+		/*
+		 * login.setLoginId(savedLogin.getLoginId());
+		 * login.setPassword(savedLogin.getPassword());
+		 * login.setUserName(savedLogin.getUserName());
+		 */
 		bookingDetails.setLogin(login);
 
 		FlightDetails flightDetails = searchFlightRepository.findByflightId(bookFlightRequest.getFlightId());
@@ -65,14 +70,20 @@ public class BookFlightService {
 
 		for (Person person : personList) {
 			TravellerDetails travellerDetails = new TravellerDetails();
-			travellerDetails.setTravellerAge(person.getTravellerAge());
-			travellerDetails.setTravellerGender(person.getTravellerGender());
-			travellerDetails.setTravellerMealPref(person.getTravellerMealPref());
-			travellerDetails.setTravellerName(person.getTravellerName());
+			BeanUtils.copyProperties(person, travellerDetails);
+			
+			/*
+			 * travellerDetails.setTravellerAge(person.getTravellerAge());
+			 * travellerDetails.setTravellerGender(person.getTravellerGender());
+			 * travellerDetails.setTravellerMealPref(person.getTravellerMealPref());
+			 * travellerDetails.setTravellerName(person.getTravellerName());
+			 */
+			
 			travellerDetails.setBookingDetails(saveBookingDetails);
 			travellerDetailsRepository.save(travellerDetails);
 		}
 
+		//creating response
 		bookFlightResponse.setArrival(saveBookingDetails.getArrival());
 		bookFlightResponse.setDeparture(saveBookingDetails.getDeparture());
 		bookFlightResponse.setFlightId(saveBookingDetails.getFlightId());
