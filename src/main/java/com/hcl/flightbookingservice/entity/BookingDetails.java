@@ -33,8 +33,8 @@ public class BookingDetails {
 	private String flightId;
 
 	@NotNull
-	@Column(name = "username")
-	private String username;
+	@Column(name = "user_name")
+	private String userName;
 
 	@NotNull
 	@Column(name = "price")
@@ -85,14 +85,6 @@ public class BookingDetails {
 		this.flightId = flightId;
 	}
 
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
 	public Double getPrice() {
 		return price;
 	}
@@ -141,15 +133,25 @@ public class BookingDetails {
 		this.travelTime = travelTime;
 	}
 
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
 	@Override
 	public String toString() {
 		final int maxLen = 10;
-		return "BookingDetails [id=" + id + ", ticketId=" + ticketId + ", flightId=" + flightId + ", username="
-				+ username + ", price=" + price + ", travellerDetails="
+		return "BookingDetails [id=" + id + ", ticketId=" + ticketId + ", flightId=" + flightId + ", userName="
+				+ userName + ", price=" + price + ", travellerDetails="
 				+ (travellerDetails != null ? travellerDetails.subList(0, Math.min(travellerDetails.size(), maxLen))
 						: null)
 				+ ", arrival=" + arrival + ", departure=" + departure + ", travelDate=" + travelDate + ", travelTime="
 				+ travelTime + "]";
 	}
+
+	
 
 }
