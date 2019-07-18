@@ -35,7 +35,7 @@ public class BookFlightController {
 			return new ResponseEntity<String>(ex.getMessage(), HttpStatus.BAD_REQUEST);
 		}
 		catch (Exception e) {
-			return new ResponseEntity<String>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+			return new ResponseEntity<String>(e.getCause().getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		 
 		return new ResponseEntity<BookFlightResponse>(bookFlight, HttpStatus.OK);

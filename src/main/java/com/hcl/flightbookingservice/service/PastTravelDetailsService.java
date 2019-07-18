@@ -27,7 +27,7 @@ public class PastTravelDetailsService {
 
 		Login login = loginRepository.findByUserName(userName);
 		if (null != login) {
-			List<BookingDetails> bookingDetails = bookingDetailsRepository.findByLogin(login.getLoginId());
+			List<BookingDetails> bookingDetails = bookingDetailsRepository.findByLogin(login);
 			System.out.println(bookingDetails.size());
 
 			if (null != bookingDetails && !bookingDetails.isEmpty()) {
@@ -40,8 +40,7 @@ public class PastTravelDetailsService {
 					bookingHistory.setPrice(bookingDetail.getPrice());
 					bookingHistory.setTicketId(bookingDetail.getTicketId());
 					bookingHistory.setTravellerDetails(bookingDetail.getTravellerDetails());
-					bookingHistory.setTravelDate(bookingDetail.getTravelDate());
-					bookingHistory.setTravelTime(bookingDetail.getTravelTime());
+					bookingHistory.setTravelDateTime(bookingDetail.getTravelDateTime());
 
 					bookingDetailsHistory.add(bookingHistory);
 				}

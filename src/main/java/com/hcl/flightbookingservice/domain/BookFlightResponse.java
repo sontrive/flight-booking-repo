@@ -1,8 +1,6 @@
 package com.hcl.flightbookingservice.domain;
 
-import java.time.Duration;
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /*
@@ -24,11 +22,9 @@ public class BookFlightResponse {
 
 	private String departure;
 
-	private LocalDate travelDate;
+	private LocalDateTime travelDateTime;
 
-	private LocalTime travelTime;
-
-	private Duration totalTravelDuration;
+	private Double totalTravelDuration;
 
 	public String getFlightId() {
 		return flightId;
@@ -86,28 +82,20 @@ public class BookFlightResponse {
 		this.departure = departure;
 	}
 
-	public LocalDate getTravelDate() {
-		return travelDate;
-	}
-
-	public void setTravelDate(LocalDate travelDate) {
-		this.travelDate = travelDate;
-	}
-
-	public LocalTime getTravelTime() {
-		return travelTime;
-	}
-
-	public void setTravelTime(LocalTime travelTime) {
-		this.travelTime = travelTime;
-	}
-
-	public Duration getTotalTravelDuration() {
+	public Double getTotalTravelDuration() {
 		return totalTravelDuration;
 	}
 
-	public void setTotalTravelDuration(Duration totalTravelDuration) {
+	public void setTotalTravelDuration(Double totalTravelDuration) {
 		this.totalTravelDuration = totalTravelDuration;
+	}
+
+	public LocalDateTime getTravelDateTime() {
+		return travelDateTime;
+	}
+
+	public void setTravelDateTime(LocalDateTime travelDateTime) {
+		this.travelDateTime = travelDateTime;
 	}
 
 	@Override
@@ -116,8 +104,8 @@ public class BookFlightResponse {
 		return "BookFlightResponse [flightId=" + flightId + ", ticketId=" + ticketId + ", flightName=" + flightName
 				+ ", numberOfPerson=" + numberOfPerson + ", person="
 				+ (person != null ? person.subList(0, Math.min(person.size(), maxLen)) : null) + ", arrival=" + arrival
-				+ ", departure=" + departure + ", travelDate=" + travelDate + ", travelTime=" + travelTime
-				+ ", totalTravelDuration=" + totalTravelDuration + "]";
+				+ ", departure=" + departure + ", travelDateTime=" + travelDateTime + ", totalTravelDuration="
+				+ totalTravelDuration + "]";
 	}
 
 }

@@ -19,10 +19,11 @@ public class PastTravelDetailsController {
 
 	@Autowired
 	PastTravelDetailsService pastTravelDetailsService;
-	
+
 	@GetMapping("/getBookingHistory")
-	public ResponseEntity<Object> getBookingHistory(@RequestParam("userName") String userName){
-		if(null == userName || "".equals(userName)) {
+	public ResponseEntity<Object> getBookingHistory(@RequestParam("userName") String userName) {
+
+		if (null == userName || "".equals(userName)) {
 			return new ResponseEntity<>("Please provide username to get past travels details.", HttpStatus.BAD_REQUEST);
 		}
 		List<BookingDetailsHistory> bookingDetails = pastTravelDetailsService.getPastTravelDetails(userName);

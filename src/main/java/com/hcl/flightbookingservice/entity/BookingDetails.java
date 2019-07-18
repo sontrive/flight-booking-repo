@@ -1,13 +1,13 @@
 package com.hcl.flightbookingservice.entity;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -45,7 +45,7 @@ public class BookingDetails {
 
 	@NotNull
 	@Column(name = "travaler_details")
-	@OneToMany(mappedBy = "bookingDetails", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "bookingDetails", cascade = CascadeType.ALL)
 	private List<TravellerDetails> travellerDetails;
 
 	@NotNull
@@ -57,12 +57,8 @@ public class BookingDetails {
 	private String departure;
 
 	@NotNull
-	@Column(name = "travelDate")
-	private LocalDate travelDate;
-
-	@NotNull
-	@Column(name = "travelTime")
-	private LocalTime travelTime;
+	@Column(name = "travel_date_time")
+	private LocalDateTime travelDateTime;
 
 	public Long getId() {
 		return id;
@@ -120,21 +116,6 @@ public class BookingDetails {
 		this.departure = departure;
 	}
 
-	public LocalDate getTravelDate() {
-		return travelDate;
-	}
-
-	public void setTravelDate(LocalDate travelDate) {
-		this.travelDate = travelDate;
-	}
-
-	public LocalTime getTravelTime() {
-		return travelTime;
-	}
-
-	public void setTravelTime(LocalTime travelTime) {
-		this.travelTime = travelTime;
-	}
 
 	public Login getLogin() {
 		return login;
@@ -144,6 +125,14 @@ public class BookingDetails {
 		this.login = login;
 	}
 
+	public LocalDateTime getTravelDateTime() {
+		return travelDateTime;
+	}
+
+	public void setTravelDateTime(LocalDateTime travelDateTime) {
+		this.travelDateTime = travelDateTime;
+	}
+
 	@Override
 	public String toString() {
 		final int maxLen = 10;
@@ -151,8 +140,8 @@ public class BookingDetails {
 				+ ", price=" + price + ", travellerDetails="
 				+ (travellerDetails != null ? travellerDetails.subList(0, Math.min(travellerDetails.size(), maxLen))
 						: null)
-				+ ", arrival=" + arrival + ", departure=" + departure + ", travelDate=" + travelDate + ", travelTime="
-				+ travelTime + "]";
+				+ ", arrival=" + arrival + ", departure=" + departure + ", travelDateTime=" + travelDateTime + "]";
 	}
 
+	
 }
