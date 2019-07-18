@@ -89,7 +89,7 @@ public class BookFlightService {
 
 		bookFlightResponse.setPerson(savedpersonList);
 		bookFlightResponse.setTicketId(saveBookingDetails.getTicketId());
-		// bookFlightResponse.setTotalTravelDuration(flightDetails.getDuration());
+		bookFlightResponse.setTotalTravelDuration(flightDetails.getDuration());
 		bookFlightResponse.setTravelDate(saveBookingDetails.getTravelDate());
 		bookFlightResponse.setTravelTime(saveBookingDetails.getTravelTime());
 

@@ -1,6 +1,5 @@
 package com.hcl.flightbookingservice.domain;
 
-import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
@@ -28,7 +27,7 @@ public class BookFlightResponse {
 
 	private LocalTime travelTime;
 
-	private Duration totalTravelDuration;
+	private Double totalTravelDuration;
 
 	public String getFlightId() {
 		return flightId;
@@ -102,11 +101,11 @@ public class BookFlightResponse {
 		this.travelTime = travelTime;
 	}
 
-	public Duration getTotalTravelDuration() {
+	public Double getTotalTravelDuration() {
 		return totalTravelDuration;
 	}
 
-	public void setTotalTravelDuration(Duration totalTravelDuration) {
+	public void setTotalTravelDuration(Double totalTravelDuration) {
 		this.totalTravelDuration = totalTravelDuration;
 	}
 
