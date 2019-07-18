@@ -1,6 +1,7 @@
 package com.hcl.flightbookingservice.service;
 
 import static org.junit.Assert.assertNotNull;
+import static org.mockito.Mockito.when;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -10,6 +11,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import com.hcl.flightbookingservice.domain.LoginDTO;
 import com.hcl.flightbookingservice.entity.Login;
 import com.hcl.flightbookingservice.repository.LoginRepository;
 
@@ -24,11 +26,12 @@ public class LoginServiceTest {
 	@Mock
 	LoginRepository loginRepositoryMock;
 	
-	Login userLogin;
+	LoginDTO userLogin;
+	Login userDetails;
 	 
 	@Before
 	public void setUp() {
-		userLogin = new Login();
+		userLogin = new LoginDTO();
 		userLogin.setUserName("abc123");
 		userLogin.setPassword("sagar");
 
@@ -37,10 +40,12 @@ public class LoginServiceTest {
 	
 	@Test
 	public void testValidateGC() {
-
-		Mockito.when(loginRepositoryMock.findByUserName(userLogin.getUserName())).thenReturn(userLogin);
+		userDetails = new Login();
+		userDetails.setUserName("abc123");
+		userDetails.setPassword("sagar");
+		when(loginRepositoryMock.findByUserName(userLogin.getUserName())).thenReturn(userDetails);
 		boolean validateUser = loginService.validateUser(userLogin);
-		assertNotNull(validateUser);
+	    assertNotNull(validateUser);
 	
 	}
 	

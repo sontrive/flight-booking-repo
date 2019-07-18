@@ -100,6 +100,7 @@ public class SearchFlightController {
 			throw new ApplicationException("Invalid Boarding Details");
 		}
 		
+
 		if((flightDetails.getDestination()==null) || "".equals(flightDetails.getDestination())){
 			throw new ApplicationException("Invalid Destination Details");
 		}
@@ -114,6 +115,6 @@ public class SearchFlightController {
 	}
 		
 		
-		
+
 }
 

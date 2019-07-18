@@ -25,7 +25,7 @@ public class PastTravelDetailsService {
 
 		List<BookingDetailsHistory> bookingDetailsHistory = new ArrayList<>();
 
-		Login login = loginRepository.findByUserName(userName);
+	/*	Login login = loginRepository.findByUserName(userName);
 		if (null != login) {
 			List<BookingDetails> bookingDetails = bookingDetailsRepository.findByLogin(login.getLoginId());
 			System.out.println(bookingDetails.size());
@@ -46,7 +46,7 @@ public class PastTravelDetailsService {
 					bookingDetailsHistory.add(bookingHistory);
 				}
 			}
-		}
+		}*/
 		return bookingDetailsHistory;
 	}
 }
