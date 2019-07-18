@@ -1,6 +1,6 @@
 package com.hcl.flightbookingservice.entity;
 
-import java.sql.Date;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -22,9 +22,11 @@ public class FlightDetails {
 	@Column(name="flight_id")
 	private String flightId;
 	
+		
 	@Column(name="flight_name")
 	private String  flightName;
-	
+
+
 	@Column(name="boarding")
 	private String boarding;
 	
@@ -39,6 +41,9 @@ public class FlightDetails {
 	
 	@Column(name="price")
 	private double price;
+	
+	@Column(name="duration")
+	private double duration;
 
 	public long getId() {
 		return id;
@@ -48,6 +53,8 @@ public class FlightDetails {
 		this.id = id;
 	}
 
+
+	
 	public String getFlightId() {
 		return flightId;
 	}
@@ -103,13 +110,23 @@ public class FlightDetails {
 	public void setPrice(double price) {
 		this.price = price;
 	}
+	
+	public double getDuration() {
+		return duration;
+	}
+
+	public void setDuration(double duration) {
+		this.duration = duration;
+	}
 
 	@Override
 	public String toString() {
-		return "FlightDetails [id=" + id + ", flight_id=" + flightId + ", flight_name=" + flightName + ", boarding="
+		return "FlightDetails [id=" + id + ", flightId=" + flightId + ", flightName=" + flightName + ", boarding="
 				+ boarding + ", destination=" + destination + ", dateOfJourney=" + dateOfJourney + ", timeOfJourney="
-				+ timeOfJourney + ", price=" + price + "]";
+				+ timeOfJourney + ", price=" + price + ", duration=" + duration + "]";
 	}
+
+	
 	
 	
 	

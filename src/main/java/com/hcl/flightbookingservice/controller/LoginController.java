@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.hcl.flightbookingservice.entity.Login;
+import com.hcl.flightbookingservice.domain.LoginDTO;
 import com.hcl.flightbookingservice.service.LoginService;
 
 /**
@@ -30,7 +30,7 @@ public class LoginController {
 	 * @return weather user is valid or not
 	 */
 	@PostMapping(value = "/validate")
-	public ResponseEntity<String> validateUser(@RequestBody Login userDetails) {
+	public ResponseEntity<String> validateUser(@RequestBody LoginDTO userDetails) {
 		if (null != userDetails && !"".equals(userDetails.getUserName()) && !"".equals(userDetails.getPassword())) {
 			boolean status = loginSrevice.validateUser(userDetails);
 			if (status)
