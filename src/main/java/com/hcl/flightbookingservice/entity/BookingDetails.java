@@ -1,5 +1,7 @@
 package com.hcl.flightbookingservice.entity;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -40,9 +42,26 @@ public class BookingDetails {
 	private Double price;
 	
 	@NotNull
-	@Column(name = "booking_id")
-	@OneToMany(mappedBy="cart", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	private List<TravalerDetails> TravalerDetails;
+	@Column(name = "travaler_details")
+	@OneToMany(mappedBy="bookingDetails", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private List<TravellerDetails> TravalerDetails;
+	
+	@NotNull
+	@Column(name = "arrival")
+	private String arrival;
+	
+	@NotNull
+	@Column(name = "deaparture")
+	private String deaparture;
+	
+	@NotNull
+	@Column(name = "travelDate")
+	private LocalDate  travelDate;
+	
+	@NotNull
+	@Column(name = "travelTime")
+	private LocalTime  travelTime;
+	
 
 	public Long getId() {
 		return id;
@@ -76,11 +95,11 @@ public class BookingDetails {
 		this.price = price;
 	}
 
-	public List<TravalerDetails> getTravalerDetails() {
+	public List<TravellerDetails> getTravalerDetails() {
 		return TravalerDetails;
 	}
 
-	public void setTravalerDetails(List<TravalerDetails> travalerDetails) {
+	public void setTravalerDetails(List<TravellerDetails> travalerDetails) {
 		TravalerDetails = travalerDetails;
 	}
 
@@ -92,6 +111,38 @@ public class BookingDetails {
 		this.flightId = flightId;
 	}
 
+	public String getArrival() {
+		return arrival;
+	}
+
+	public void setarrival(String arrival) {
+		this.arrival = arrival;
+	}
+
+	public String getDeaparture() {
+		return deaparture;
+	}
+
+	public void setDeaparture(String deaparture) {
+		this.deaparture = deaparture;
+	}
+
+	public LocalDate getTravelDate() {
+		return travelDate;
+	}
+
+	public void setTravelDate(LocalDate travelDate) {
+		this.travelDate = travelDate;
+	}
+
+	public LocalTime getTravelTime() {
+		return travelTime;
+	}
+
+	public void setTravelTime(LocalTime travelTime) {
+		this.travelTime = travelTime;
+	}
+
 	@Override
 	public String toString() {
 		final int maxLen = 10;
@@ -99,14 +150,11 @@ public class BookingDetails {
 				+ username + ", price=" + price + ", TravalerDetails="
 				+ (TravalerDetails != null ? TravalerDetails.subList(0, Math.min(TravalerDetails.size(), maxLen))
 						: null)
-				+ ", getId()=" + getId() + ", getTicketId()=" + getTicketId() + ", getUsername()=" + getUsername()
-				+ ", getPrice()=" + getPrice() + ", getTravalerDetails()="
-				+ (getTravalerDetails() != null
-						? getTravalerDetails().subList(0, Math.min(getTravalerDetails().size(), maxLen))
-						: null)
-				+ ", getFlightId()=" + getFlightId() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
-				+ ", toString()=" + super.toString() + "]";
+				+ ", arrival=" + arrival + ", deaparture=" + deaparture + ", travelDate=" + travelDate + ", travelTime="
+				+ travelTime + "]";
 	}
+
+	
 
 	
 	
