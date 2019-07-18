@@ -102,11 +102,11 @@ public class SearchFlightController {
 			throw new ApplicationException("Invalid Destination Details");
 		}
 		
-		if((flightDetails.getDateOfJourney()==null) || "".equals(flightDetails.getDateOfJourney())){
+		if((flightDetails.getDateOfJourney()==null) || "".equals(flightDetails.getDateOfJourney().toString())){
 			throw new ApplicationException("Invalid Date of Journey Details");
 		}
 		
-		if((flightDetails.getTimeOfJourney()==null) || "".equals(flightDetails.getTimeOfJourney())){
+		if((flightDetails.getTimeOfJourney()==null) || "".equals(flightDetails.getTimeOfJourney().toString())){
 			throw new ApplicationException("Invalid Time of Journey Details");
 		}
 	}
