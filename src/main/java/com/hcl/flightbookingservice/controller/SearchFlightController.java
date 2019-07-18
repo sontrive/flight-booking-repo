@@ -108,7 +108,7 @@ public class SearchFlightController {
 			throw new ApplicationException("Invalid Date of Journey Details");
 		}
 		
-		if((flightDetails.getTimeOfJourney()==null) || "".equals(flightDetails.getDateOfJourney())){
+		if((flightDetails.getTimeOfJourney()==null) || "".equals(flightDetails.getTimeOfJourney())){
 			throw new ApplicationException("Invalid Time of Journey Details");
 		}
 	}

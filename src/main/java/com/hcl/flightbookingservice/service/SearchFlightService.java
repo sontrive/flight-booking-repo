@@ -1,5 +1,6 @@
 package com.hcl.flightbookingservice.service;
 
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
@@ -62,7 +63,7 @@ public Optional<List<FlightDetails>> searchFlightDetailsBasedOnPrice(double pric
 }
 
 
-public Optional<List<FlightDetails>> searchFlightDetailsBasedOnDuration(double duration){
+public Optional<List<FlightDetails>> searchFlightDetailsBasedOnDuration(Duration duration){
 	
 	return searchFlightRepository.findByOrderByDurationAsc();
 				
