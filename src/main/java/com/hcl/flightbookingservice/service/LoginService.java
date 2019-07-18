@@ -3,6 +3,7 @@ package com.hcl.flightbookingservice.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.hcl.flightbookingservice.domain.LoginDTO;
 import com.hcl.flightbookingservice.entity.Login;
 import com.hcl.flightbookingservice.repository.LoginRepository;
 
@@ -17,7 +18,7 @@ public class LoginService {
 	 * get detials from database table login details
 	 * @return the user is valid or not after check
 	 */
-	public boolean validateUser(Login userDetails) {
+	public boolean validateUser(LoginDTO userDetails) {
 		// TODO Auto-generated method stub
 
 		Login user = loginRepository.findByUserName(userDetails.getUserName());

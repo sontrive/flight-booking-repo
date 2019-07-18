@@ -12,11 +12,11 @@ import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.http.ResponseEntity;
 
-import com.hcl.flightbookingservice.entity.Login;
+import com.hcl.flightbookingservice.domain.LoginDTO;
 import com.hcl.flightbookingservice.service.LoginService;
 
 @RunWith(MockitoJUnitRunner.class)
-public class LoginControllerTests {
+public class LoginControllerTest {
 
 	@InjectMocks
 	LoginController loginController;
@@ -24,18 +24,18 @@ public class LoginControllerTests {
 	@Mock
 	LoginService loginServiceMock;
 
-	Login userLogin;
+	LoginDTO userLogin;
 
 	@Before
 	public void setUp() {
-		userLogin = new Login();
+		userLogin = new LoginDTO();
 		userLogin.setUserName("abc123");
 		userLogin.setPassword("sagar");
 
 	}
 
 	@Test
-	public void testValidateGC() {
+	public void testValidate() {
 
 		Mockito.when(loginServiceMock.validateUser(userLogin)).thenReturn(true);
 		ResponseEntity<String> validateUser = loginController.validateUser(userLogin);
@@ -44,7 +44,7 @@ public class LoginControllerTests {
 	}
 
 	@Test
-	public void testValidateBadCase() {
+	public void testInvalidDetails() {
 
 		Mockito.when(loginServiceMock.validateUser(userLogin)).thenReturn(false);
 		ResponseEntity<String> validateUser = loginController.validateUser(userLogin);
@@ -54,9 +54,9 @@ public class LoginControllerTests {
 	}
 
 	@Test
-	public void testValidateBadCaseWithNull() {
+	public void testUserNameAndPasswordNull() {
 
-		userLogin = new Login();
+		userLogin = new LoginDTO();
 		userLogin.setUserName(null);
 		userLogin.setPassword(null);
 		Mockito.when(loginServiceMock.validateUser(userLogin)).thenReturn(false);
@@ -65,4 +65,17 @@ public class LoginControllerTests {
 		assertEquals(400, validateUser.getStatusCodeValue());
 	}
 
+	
+	@Test
+	public void testUserNameNull() {
+
+		userLogin = new LoginDTO();
+		userLogin.setUserName(null);
+		userLogin.setPassword("abc");
+		Mockito.when(loginServiceMock.validateUser(userLogin)).thenReturn(false);
+		ResponseEntity<String> validateUser = loginController.validateUser(userLogin);
+		assertNotNull(validateUser);
+		assertEquals(400, validateUser.getStatusCodeValue());
+	}
+	
 }

@@ -1,6 +1,6 @@
 package com.hcl.flightbookingservice.domain;
 
-public class Login {
+public class LoginDTO {
 
 	private Integer loginId;
 	private String userName;
