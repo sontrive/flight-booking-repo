@@ -1,13 +1,19 @@
 package com.hcl.flightbookingservice.domain;
 
+import javax.validation.constraints.NotNull;
+
 public class Person {
 
+	@NotNull(message = "Traveller Name is missing.")
 	private String travellerName;
 
-	private String travellerAge;
+	@NotNull(message = "Traveller Age is missing.")
+	private Integer travellerAge;
 	
+	@NotNull(message = "Traveller Meal Preferance is missing.")
 	private String travellerMealPref;
 	
+	@NotNull(message = "Traveller Gender is missing.")
 	private String travellerGender;
 
 	public String getTravellerName() {
@@ -18,11 +24,11 @@ public class Person {
 		this.travellerName = travellerName;
 	}
 
-	public String getTravellerAge() {
+	public Integer getTravellerAge() {
 		return travellerAge;
 	}
 
-	public void setTravellerAge(String travellerAge) {
+	public void setTravellerAge(Integer travellerAge) {
 		this.travellerAge = travellerAge;
 	}
 
