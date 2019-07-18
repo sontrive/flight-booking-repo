@@ -12,6 +12,11 @@ public class LoginService {
 	@Autowired
 	LoginRepository loginRepository;
 
+	/**
+	 * @param userDetails takes userdetails from controller
+	 * get detials from database table login details
+	 * @return the user is valid or not after check
+	 */
 	public boolean validateUser(Login userDetails) {
 		// TODO Auto-generated method stub
 

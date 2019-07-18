@@ -1,6 +1,5 @@
 package com.hcl.flightbookingservice.service;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Before;
@@ -10,7 +9,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
-import org.springframework.http.ResponseEntity;
 
 import com.hcl.flightbookingservice.entity.Login;
 import com.hcl.flightbookingservice.repository.LoginRepository;

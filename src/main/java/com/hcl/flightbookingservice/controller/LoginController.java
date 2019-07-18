@@ -11,6 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.hcl.flightbookingservice.entity.Login;
 import com.hcl.flightbookingservice.service.LoginService;
 
+/**
+ * 
+ * 
+ * this controller is used to take the username and password from user and returns
+ * either l0gin successful or not
+ *
+ */
 @RestController
 @RequestMapping(value = "/login")
 public class LoginController {
@@ -18,6 +25,10 @@ public class LoginController {
 	@Autowired
 	LoginService loginSrevice;
 
+	/**
+	 * @param userDetails takes the user details as username and password
+	 * @return weather user is valid or not
+	 */
 	@PostMapping(value = "/validate")
 	public ResponseEntity<String> validateUser(@RequestBody Login userDetails) {
 		if (null != userDetails && !"".equals(userDetails.getUserName()) && !"".equals(userDetails.getPassword())) {
