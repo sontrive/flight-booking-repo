@@ -24,7 +24,6 @@ public class SearchFlightController {
 			throw new 
 		}
 		
-		if(isNullorEmpty())
-
+		if(isNullorEmpty()) */
 }
 }
