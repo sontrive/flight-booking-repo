@@ -44,7 +44,7 @@ public class BookFlightControllerTest {
 	}
 	
 	@Test
-	public void testBookFlight() throws ApplicationException {
+	public void testBookFlight() {
 		BookFlightResponse bookFlightResponse = new BookFlightResponse();
 		Mockito.when(bookFlightServiceMock.bookFlight(bookFlightRequest)).thenReturn(bookFlightResponse);
 		ResponseEntity<?> bookFlight = bookFlightController.bookFlight(bookFlightRequest);

@@ -14,7 +14,6 @@ import com.hcl.flightbookingservice.entity.BookingDetails;
 import com.hcl.flightbookingservice.entity.FlightDetails;
 import com.hcl.flightbookingservice.entity.Login;
 import com.hcl.flightbookingservice.entity.TravellerDetails;
-import com.hcl.flightbookingservice.exception.ApplicationException;
 import com.hcl.flightbookingservice.repository.BookingDetailsRepository;
 import com.hcl.flightbookingservice.repository.LoginRepository;
 import com.hcl.flightbookingservice.repository.SearchFlightRepository;
@@ -35,7 +34,7 @@ public class BookFlightService {
 	@Autowired
 	BookingDetailsRepository bookingDetailsRepository;
 
-	public BookFlightResponse bookFlight(BookFlightRequest bookFlightRequest) throws ApplicationException {
+	public BookFlightResponse bookFlight(BookFlightRequest bookFlightRequest) {
 
 		BookFlightResponse bookFlightResponse = new BookFlightResponse();
 		
