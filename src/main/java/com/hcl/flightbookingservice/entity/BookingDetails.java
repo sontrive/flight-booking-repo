@@ -34,7 +34,7 @@ public class BookingDetails {
 
 	@NotNull
 	@Column(name = "username")
-	private String username;
+	private String userName;
 
 	@NotNull
 	@Column(name = "price")
@@ -86,11 +86,11 @@ public class BookingDetails {
 	}
 
 	public String getUsername() {
-		return username;
+		return userName;
 	}
 
 	public void setUsername(String username) {
-		this.username = username;
+		this.userName = username;
 	}
 
 	public Double getPrice() {
@@ -145,7 +145,7 @@ public class BookingDetails {
 	public String toString() {
 		final int maxLen = 10;
 		return "BookingDetails [id=" + id + ", ticketId=" + ticketId + ", flightId=" + flightId + ", username="
-				+ username + ", price=" + price + ", travellerDetails="
+				+ userName + ", price=" + price + ", travellerDetails="
 				+ (travellerDetails != null ? travellerDetails.subList(0, Math.min(travellerDetails.size(), maxLen))
 						: null)
 				+ ", arrival=" + arrival + ", departure=" + departure + ", travelDate=" + travelDate + ", travelTime="
