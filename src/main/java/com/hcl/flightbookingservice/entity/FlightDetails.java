@@ -42,7 +42,7 @@ public class FlightDetails {
 	private double price;
 	
 	@Column(name="duration")
-	private Duration duration;
+	private double duration;
 
 	public long getId() {
 		return id;
@@ -109,11 +109,11 @@ public class FlightDetails {
 	}
 	
 	
-	public Duration getDuration() {
+	public double getDuration() {
 		return duration;
 	}
 
-	public void setDuration(Duration duration) {
+	public void setDuration(double duration) {
 		this.duration = duration;
 	}
 

@@ -63,7 +63,7 @@ public Optional<List<FlightDetails>> searchFlightDetailsBasedOnPrice(double pric
 }
 
 
-public Optional<List<FlightDetails>> searchFlightDetailsBasedOnDuration(Duration duration){
+public Optional<List<FlightDetails>> searchFlightDetailsBasedOnDuration(double duration){
 	
 	return searchFlightRepository.findByOrderByDurationAsc();
 				
