@@ -11,7 +11,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -33,8 +35,9 @@ public class BookingDetails {
 	private String flightId;
 
 	@NotNull
-	@Column(name = "user_name")
-	private String userName;
+	@OneToOne
+	@JoinColumn(name="login_id", nullable=false)
+	private Login Login;
 
 	@NotNull
 	@Column(name = "price")
@@ -85,6 +88,14 @@ public class BookingDetails {
 		this.flightId = flightId;
 	}
 
+	public Login getLogin() {
+		return Login;
+	}
+
+	public void setLogin(Login login) {
+		Login = login;
+	}
+
 	public Double getPrice() {
 		return price;
 	}
@@ -133,25 +144,18 @@ public class BookingDetails {
 		this.travelTime = travelTime;
 	}
 
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
 	@Override
 	public String toString() {
 		final int maxLen = 10;
-		return "BookingDetails [id=" + id + ", ticketId=" + ticketId + ", flightId=" + flightId + ", userName="
-				+ userName + ", price=" + price + ", travellerDetails="
+		return "BookingDetails [id=" + id + ", ticketId=" + ticketId + ", flightId=" + flightId + ", Login=" + Login
+				+ ", price=" + price + ", travellerDetails="
 				+ (travellerDetails != null ? travellerDetails.subList(0, Math.min(travellerDetails.size(), maxLen))
 						: null)
 				+ ", arrival=" + arrival + ", departure=" + departure + ", travelDate=" + travelDate + ", travelTime="
 				+ travelTime + "]";
 	}
 
+	
 	
 
 }
