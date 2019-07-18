@@ -10,5 +10,5 @@ import com.hcl.flightbookingservice.entity.BookingDetails;
 @Repository
 public interface BookingDetailsRepository extends JpaRepository<BookingDetails, Long> {
 
-	public List<BookingDetails> findByUserName(String userName);
+	public List<BookingDetails> findByLogin(Integer loginId);
 }
