@@ -1,7 +1,6 @@
 package com.hcl.flightbookingservice.domain;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /*
@@ -23,9 +22,7 @@ public class BookFlightResponse {
 
 	private String departure;
 
-	private LocalDate travelDate;
-
-	private LocalTime travelTime;
+	private LocalDateTime travelDateTime;
 
 	private Double totalTravelDuration;
 
@@ -85,22 +82,6 @@ public class BookFlightResponse {
 		this.departure = departure;
 	}
 
-	public LocalDate getTravelDate() {
-		return travelDate;
-	}
-
-	public void setTravelDate(LocalDate travelDate) {
-		this.travelDate = travelDate;
-	}
-
-	public LocalTime getTravelTime() {
-		return travelTime;
-	}
-
-	public void setTravelTime(LocalTime travelTime) {
-		this.travelTime = travelTime;
-	}
-
 	public Double getTotalTravelDuration() {
 		return totalTravelDuration;
 	}
@@ -109,14 +90,22 @@ public class BookFlightResponse {
 		this.totalTravelDuration = totalTravelDuration;
 	}
 
+	public LocalDateTime getTravelDateTime() {
+		return travelDateTime;
+	}
+
+	public void setTravelDateTime(LocalDateTime travelDateTime) {
+		this.travelDateTime = travelDateTime;
+	}
+
 	@Override
 	public String toString() {
 		final int maxLen = 10;
 		return "BookFlightResponse [flightId=" + flightId + ", ticketId=" + ticketId + ", flightName=" + flightName
 				+ ", numberOfPerson=" + numberOfPerson + ", person="
 				+ (person != null ? person.subList(0, Math.min(person.size(), maxLen)) : null) + ", arrival=" + arrival
-				+ ", departure=" + departure + ", travelDate=" + travelDate + ", travelTime=" + travelTime
-				+ ", totalTravelDuration=" + totalTravelDuration + "]";
+				+ ", departure=" + departure + ", travelDateTime=" + travelDateTime + ", totalTravelDuration="
+				+ totalTravelDuration + "]";
 	}
 
 }

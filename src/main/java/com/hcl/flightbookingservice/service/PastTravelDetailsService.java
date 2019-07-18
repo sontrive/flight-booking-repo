@@ -40,8 +40,7 @@ public class PastTravelDetailsService {
 					bookingHistory.setPrice(bookingDetail.getPrice());
 					bookingHistory.setTicketId(bookingDetail.getTicketId());
 					bookingHistory.setTravellerDetails(bookingDetail.getTravellerDetails());
-					bookingHistory.setTravelDate(bookingDetail.getTravelDate());
-					bookingHistory.setTravelTime(bookingDetail.getTravelTime());
+					bookingHistory.setTravelDateTime(bookingDetail.getTravelDateTime());
 
 					bookingDetailsHistory.add(bookingHistory);
 				}
