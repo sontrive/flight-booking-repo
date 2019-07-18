@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.hcl.flightbookingservice.entity.BookingDetails;
 
 @Repository
-public interface PastTravelDetailsRepository extends JpaRepository<BookingDetails, Long> {
+public interface BookingDetailsRepository extends JpaRepository<BookingDetails, Long> {
 
 	public List<BookingDetails> findByUserName(String userName);
 }

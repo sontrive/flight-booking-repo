@@ -21,7 +21,7 @@ public class PastTravelDetailsController {
 	PastTravelDetailsService pastTravelDetailsService;
 	
 	@GetMapping("/getBookingHistory")
-	public ResponseEntity<Object> getBookingHistory(@RequestParam("customerFirstName") String userName){
+	public ResponseEntity<Object> getBookingHistory(@RequestParam("userName") String userName){
 		if(null == userName || "".equals(userName)) {
 			return new ResponseEntity<>("Please provide username to get past travels details.", HttpStatus.BAD_REQUEST);
 		}
