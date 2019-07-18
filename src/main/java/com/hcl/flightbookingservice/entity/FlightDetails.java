@@ -1,6 +1,6 @@
 package com.hcl.flightbookingservice.entity;
 
-import java.sql.Date;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -20,18 +20,13 @@ public class FlightDetails {
 	private long id;
 	
 	@Column(name="flight_id")
-
-	private String flight_id;
-	
-	@Column(name="flight_name")
-	private String  flight_name;
-
 	private String flightId;
 	
+		
 	@Column(name="flight_name")
 	private String  flightName;
 
-	
+
 	@Column(name="boarding")
 	private String boarding;
 	
@@ -46,6 +41,9 @@ public class FlightDetails {
 	
 	@Column(name="price")
 	private double price;
+	
+	@Column(name="duration")
+	private double duration;
 
 	public long getId() {
 		return id;
@@ -56,32 +54,79 @@ public class FlightDetails {
 	}
 
 
-	public String getFlight_id() {
-		return flight_id;
-	}
-
-	public void setFlight_id(String flight_id) {
-		this.flight_id = flight_id;
-	}
-
-	public String getFlight_name() {
-		return flight_name;
-	}
-
-	public void setFlight_name(String flight_name) {
-		this.flight_name = flight_name;
-	}
-
 	
+	public String getFlightId() {
+		return flightId;
+	}
+
+	public void setFlightId(String flightId) {
+		this.flightId = flightId;
+	}
+
+	public String getFlightName() {
+		return flightName;
+	}
+
+	public void setFlightName(String flightName) {
+		this.flightName = flightName;
+	}
+
+	public String getBoarding() {
+		return boarding;
+	}
+
+	public void setBoarding(String boarding) {
+		this.boarding = boarding;
+	}
+
+	public String getDestination() {
+		return destination;
+	}
+
+	public void setDestination(String destination) {
+		this.destination = destination;
+	}
+
+	public LocalDate getDateOfJourney() {
+		return dateOfJourney;
+	}
+
+	public void setDateOfJourney(LocalDate dateOfJourney) {
+		this.dateOfJourney = dateOfJourney;
+	}
+
+	public LocalTime getTimeOfJourney() {
+		return timeOfJourney;
+	}
+
+	public void setTimeOfJourney(LocalTime timeOfJourney) {
+		this.timeOfJourney = timeOfJourney;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	
+	public double getDuration() {
+		return duration;
+	}
+
+	public void setDuration(double duration) {
+		this.duration = duration;
+	}
 
 	@Override
 	public String toString() {
-
-		return "FlightDetails [id=" + id + ", flight_id=" + flightId + ", flight_name=" + flightName + ", boarding="
-
+		return "FlightDetails [id=" + id + ", flightId=" + flightId + ", flightName=" + flightName + ", boarding="
 				+ boarding + ", destination=" + destination + ", dateOfJourney=" + dateOfJourney + ", timeOfJourney="
-				+ timeOfJourney + ", price=" + price + "]";
+				+ timeOfJourney + ", price=" + price + ", duration=" + duration + "]";
 	}
+
+	
 	
 	
 	
