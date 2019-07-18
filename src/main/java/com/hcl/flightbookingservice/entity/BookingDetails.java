@@ -23,45 +23,43 @@ public class BookingDetails {
 	@Column(name = "booking_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@NotNull
 	@Column(name = "ticket_id")
 	private String ticketId;
-	
+
 	@NotNull
 	@Column(name = "flight_id")
 	private String flightId;
-	
-	
+
 	@NotNull
-	@Column(name = "username")
-	private String username;
-	
+	@Column(name = "user_name")
+	private String userName;
+
 	@NotNull
 	@Column(name = "price")
 	private Double price;
-	
+
 	@NotNull
 	@Column(name = "travaler_details")
-	@OneToMany(mappedBy="bookingDetails", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	private List<TravellerDetails> TravalerDetails;
-	
+	@OneToMany(mappedBy = "bookingDetails", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private List<TravellerDetails> travellerDetails;
+
 	@NotNull
 	@Column(name = "arrival")
 	private String arrival;
-	
+
 	@NotNull
-	@Column(name = "deaparture")
-	private String deaparture;
-	
+	@Column(name = "departure")
+	private String departure;
+
 	@NotNull
 	@Column(name = "travelDate")
-	private LocalDate  travelDate;
-	
+	private LocalDate travelDate;
+
 	@NotNull
 	@Column(name = "travelTime")
-	private LocalTime  travelTime;
-	
+	private LocalTime travelTime;
 
 	public Long getId() {
 		return id;
@@ -79,12 +77,12 @@ public class BookingDetails {
 		this.ticketId = ticketId;
 	}
 
-	public String getUsername() {
-		return username;
+	public String getFlightId() {
+		return flightId;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setFlightId(String flightId) {
+		this.flightId = flightId;
 	}
 
 	public Double getPrice() {
@@ -95,36 +93,28 @@ public class BookingDetails {
 		this.price = price;
 	}
 
-	public List<TravellerDetails> getTravalerDetails() {
-		return TravalerDetails;
+	public List<TravellerDetails> getTravellerDetails() {
+		return travellerDetails;
 	}
 
-	public void setTravalerDetails(List<TravellerDetails> travalerDetails) {
-		TravalerDetails = travalerDetails;
-	}
-
-	public String getFlightId() {
-		return flightId;
-	}
-
-	public void setFlightId(String flightId) {
-		this.flightId = flightId;
+	public void setTravellerDetails(List<TravellerDetails> travellerDetails) {
+		this.travellerDetails = travellerDetails;
 	}
 
 	public String getArrival() {
 		return arrival;
 	}
 
-	public void setarrival(String arrival) {
+	public void setArrival(String arrival) {
 		this.arrival = arrival;
 	}
 
-	public String getDeaparture() {
-		return deaparture;
+	public String getDeparture() {
+		return departure;
 	}
 
-	public void setDeaparture(String deaparture) {
-		this.deaparture = deaparture;
+	public void setDeparture(String departure) {
+		this.departure = departure;
 	}
 
 	public LocalDate getTravelDate() {
@@ -143,22 +133,25 @@ public class BookingDetails {
 		this.travelTime = travelTime;
 	}
 
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
 	@Override
 	public String toString() {
 		final int maxLen = 10;
-		return "BookingDetails [id=" + id + ", ticketId=" + ticketId + ", flightId=" + flightId + ", username="
-				+ username + ", price=" + price + ", TravalerDetails="
-				+ (TravalerDetails != null ? TravalerDetails.subList(0, Math.min(TravalerDetails.size(), maxLen))
+		return "BookingDetails [id=" + id + ", ticketId=" + ticketId + ", flightId=" + flightId + ", userName="
+				+ userName + ", price=" + price + ", travellerDetails="
+				+ (travellerDetails != null ? travellerDetails.subList(0, Math.min(travellerDetails.size(), maxLen))
 						: null)
-				+ ", arrival=" + arrival + ", deaparture=" + deaparture + ", travelDate=" + travelDate + ", travelTime="
+				+ ", arrival=" + arrival + ", departure=" + departure + ", travelDate=" + travelDate + ", travelTime="
 				+ travelTime + "]";
 	}
 
 	
-
-	
-	
-	
-
 
 }

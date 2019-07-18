@@ -27,7 +27,7 @@ public class TravellerDetails {
 	
 	@NotNull
 	@Column(name = "traveller_age")
-	private String travellerAge;
+	private Integer travellerAge;
 	
 	
 	@NotNull
@@ -60,11 +60,11 @@ public class TravellerDetails {
 		this.travellerName = travellerName;
 	}
 
-	public String getTravellerAge() {
+	public Integer getTravellerAge() {
 		return travellerAge;
 	}
 
-	public void setTravellerAge(String travellerAge) {
+	public void setTravellerAge(Integer travellerAge) {
 		this.travellerAge = travellerAge;
 	}
 
