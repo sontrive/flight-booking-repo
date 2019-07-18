@@ -1,9 +1,6 @@
 package com.hcl.flightbookingservice.service;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,44 +22,44 @@ public class SearchFlightService {
 		
 	}
 	
-public List<FlightDetails> searchFlightDetailsBasedOnFlightName(String flightName){
+public List<FlightDetails> searchFlightDetailsBasedOnFlightName(){
 		
 		return searchFlightRepository.findByOrderByFlightNameAsc();
 					
 }
 
-public List<FlightDetails> searchFlightDetailsBasedOnBorading(String boarding){
+public List<FlightDetails> searchFlightDetailsBasedOnBorading(){
 	
 	return searchFlightRepository.findByOrderByBoardingAsc();
 				
 }
 
-public List<FlightDetails> searchFlightDetailsBasedOnDestination(String destination){
+public List<FlightDetails> searchFlightDetailsBasedOnDestination(){
 	
 	return searchFlightRepository.findByOrderByDestinationAsc();
 				
 }
 
-public List<FlightDetails> searchFlightDetailsBasedOnDateOfJourney(LocalDate localDate){
+public List<FlightDetails> searchFlightDetailsBasedOnDateOfJourney(){
 	
 	return searchFlightRepository.findByOrderByDateOfJourneyAsc();
 				
 }
 
-public List<FlightDetails> searchFlightDetailsBasedOnTimeOfJourney(LocalTime localTime){
+public List<FlightDetails> searchFlightDetailsBasedOnTimeOfJourney(){
 	
 	return searchFlightRepository.findByOrderByTimeOfJourneyAsc();
 				
 }
 
-public List<FlightDetails> searchFlightDetailsBasedOnPrice(double price){
+public List<FlightDetails> searchFlightDetailsBasedOnPrice(){
 	
 	return searchFlightRepository.findByOrderByPriceAsc();
 				
 }
 
 
-public List<FlightDetails> searchFlightDetailsBasedOnDuration(double duration){
+public List<FlightDetails> searchFlightDetailsBasedOnDuration(){
 	
 	return searchFlightRepository.findByOrderByDurationAsc();
 				
