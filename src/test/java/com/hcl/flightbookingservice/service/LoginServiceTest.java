@@ -15,7 +15,7 @@ import com.hcl.flightbookingservice.repository.LoginRepository;
 
 
 @RunWith(MockitoJUnitRunner.class)
-public class LoginServiceTests {
+public class LoginServiceTest {
 
 	
 	@InjectMocks
