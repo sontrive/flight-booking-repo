@@ -45,7 +45,7 @@ public class BookingDetails {
 
 	@NotNull
 	@Column(name = "travaler_details")
-	@OneToMany(mappedBy = "bookingDetails", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "bookingDetails", cascade = CascadeType.ALL)
 	private List<TravellerDetails> travellerDetails;
 
 	@NotNull
@@ -144,15 +144,14 @@ public class BookingDetails {
 		this.login = login;
 	}
 
-	@Override
-	public String toString() {
-		final int maxLen = 10;
-		return "BookingDetails [id=" + id + ", ticketId=" + ticketId + ", flightId=" + flightId + ", login=" + login
-				+ ", price=" + price + ", travellerDetails="
-				+ (travellerDetails != null ? travellerDetails.subList(0, Math.min(travellerDetails.size(), maxLen))
-						: null)
-				+ ", arrival=" + arrival + ", departure=" + departure + ", travelDate=" + travelDate + ", travelTime="
-				+ travelTime + "]";
-	}
+	/*
+	 * @Override public String toString() { final int maxLen = 10; return
+	 * "BookingDetails [id=" + id + ", ticketId=" + ticketId + ", flightId=" +
+	 * flightId + ", login=" + login + ", price=" + price + ", travellerDetails=" +
+	 * (travellerDetails != null ? travellerDetails.subList(0,
+	 * Math.min(travellerDetails.size(), maxLen)) : null) + ", arrival=" + arrival +
+	 * ", departure=" + departure + ", travelDate=" + travelDate + ", travelTime=" +
+	 * travelTime + "]"; }
+	 */
 
 }

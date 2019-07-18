@@ -83,14 +83,12 @@ public class TravellerDetails {
 	public void setTravellerGender(String travellerGender) {
 		this.travellerGender = travellerGender;
 	}
-
-	public BookingDetails getBookingDetails() {
-		return bookingDetails;
-	}
-
-	public void setBookingDetails(BookingDetails bookingDetails) {
-		this.bookingDetails = bookingDetails;
-	}
+	/*
+	 * public BookingDetails getBookingDetails() { return bookingDetails; }
+	 * 
+	 * public void setBookingDetails(BookingDetails bookingDetails) {
+	 * this.bookingDetails = bookingDetails; }
+	 */
 
 	@Override
 	public String toString() {

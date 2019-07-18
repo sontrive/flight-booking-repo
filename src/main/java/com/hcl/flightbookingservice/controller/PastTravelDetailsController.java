@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hcl.flightbookingservice.domain.BookingDetailsHistory;
 import com.hcl.flightbookingservice.service.PastTravelDetailsService;
 
@@ -19,13 +21,21 @@ public class PastTravelDetailsController {
 
 	@Autowired
 	PastTravelDetailsService pastTravelDetailsService;
-	
+
 	@GetMapping("/getBookingHistory")
-	public ResponseEntity<Object> getBookingHistory(@RequestParam("userName") String userName){
-		if(null == userName || "".equals(userName)) {
+	public ResponseEntity<Object> getBookingHistory(@RequestParam("userName") String userName) {
+
+		if (null == userName || "".equals(userName)) {
 			return new ResponseEntity<>("Please provide username to get past travels details.", HttpStatus.BAD_REQUEST);
 		}
+
 		List<BookingDetailsHistory> bookingDetails = pastTravelDetailsService.getPastTravelDetails(userName);
+		try {
+			System.out.println(new ObjectMapper().writeValueAsString(bookingDetails));
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return new ResponseEntity<>(bookingDetails, HttpStatus.OK);
 	}
 }

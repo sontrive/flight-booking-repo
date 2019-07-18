@@ -27,7 +27,7 @@ public class PastTravelDetailsService {
 
 		Login login = loginRepository.findByUserName(userName);
 		if (null != login) {
-			List<BookingDetails> bookingDetails = bookingDetailsRepository.findByLogin(login.getLoginId());
+			List<BookingDetails> bookingDetails = bookingDetailsRepository.findByLogin(login);
 			System.out.println(bookingDetails.size());
 
 			if (null != bookingDetails && !bookingDetails.isEmpty()) {
