@@ -40,7 +40,7 @@ public class FlightDetails {
 	private LocalTime timeOfJourney;
 	
 	@Column(name="price")
-	private double price;
+	private Double price;
 	
 	@Column(name="duration")
 	private Double duration;
@@ -103,11 +103,11 @@ public class FlightDetails {
 		this.timeOfJourney = timeOfJourney;
 	}
 
-	public double getPrice() {
+	public Double getPrice() {
 		return price;
 	}
 
-	public void setPrice(double price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
 	
