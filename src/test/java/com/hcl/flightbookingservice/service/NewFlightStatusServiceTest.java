@@ -34,6 +34,10 @@ public class NewFlightStatusServiceTest {
 	public void addNewFlightRequestIfNewFlightRequestIsCorrect() {
 		
 		NewFlightStatus newFlightStatus = new NewFlightStatus();
+		newFlightRequestStatus.setBoarding("Pune");
+		newFlightRequestStatus.setDestination("Kota");
+		newFlightRequestStatus.setFlightId("ARV-231");
+		newFlightRequestStatus.setFlightName("Air Vistara");
 		when(newFlightStatusRepository.save(newFlightStatus)).thenReturn(new NewFlightStatus());
 		Assert.assertNotNull(newFlightStatusService.addNewFlightRequest(newFlightRequestStatus));
 	}

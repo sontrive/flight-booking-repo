@@ -28,6 +28,7 @@ public class LoginServiceTest {
 	LoginRepository loginRepositoryMock;
 	
 	LoginDTO userLogin;
+	
 	Login userDetails;
 	 
 	@Before
