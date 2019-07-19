@@ -14,18 +14,16 @@ public class LoginService {
 	LoginRepository loginRepository;
 
 	/**
-	 * @param userDetails takes userdetails from controller
-	 * get detials from database table login details
+	 * @param userDetails takes userdetails from controller get detials from
+	 *                    database table login details
 	 * @return the user is valid or not after check
 	 */
 	public boolean validateUser(LoginDTO userDetails) {
-		// TODO Auto-generated method stub
 
 		Login user = loginRepository.findByUserName(userDetails.getUserName());
-		if (user != null)
-			if (user.getUserName().equals(userDetails.getUserName())
-					&& user.getPassword().equals(userDetails.getPassword()))
-				return true;
+		if (user != null && user.getUserName().equals(userDetails.getUserName())
+				&& user.getPassword().equals(userDetails.getPassword()))
+			return true;
 		return false;
 	}
 

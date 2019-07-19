@@ -36,48 +36,48 @@ public class SearchFlightController {
 	 */
 	
 	@PostMapping("/search")
-	public ResponseEntity<?> getFlightDetails(@RequestBody FlightDetails flightdetails,String sortParam) {
+	public ResponseEntity<Object> getFlightDetails(@RequestBody FlightDetails flightdetails,String sortParam) {
 		List<FlightDetails> flightDetails =null ;
 		try {
 			validateFields(flightdetails);
 			
 			if (sortParam == null ||"".equals(sortParam)) {
 				List<FlightDetails> searchFlightDetails=flightDetails= searchFlightService.searchFlightDetails();
-				return new ResponseEntity<List<FlightDetails>>(searchFlightDetails,HttpStatus.OK);
+				return new ResponseEntity<>(searchFlightDetails,HttpStatus.OK);
 			}
 			
 			if(sortParam.equals(flightdetails.getFlightName())){
 				List<FlightDetails> searchFlightDetailsBasedOnFlightName = searchFlightService.searchFlightDetailsBasedOnFlightName();
-				return new ResponseEntity<List<FlightDetails>>(searchFlightDetailsBasedOnFlightName, HttpStatus.OK);
+				return new ResponseEntity<>(searchFlightDetailsBasedOnFlightName, HttpStatus.OK);
 			}
 			
 			if(sortParam.equals(flightdetails.getBoarding())){
 				List<FlightDetails> searchFlightDetailsBasedOnBoarding = searchFlightService.searchFlightDetailsBasedOnBorading();
-				return new ResponseEntity<List<FlightDetails>>(searchFlightDetailsBasedOnBoarding,HttpStatus.OK);
+				return new ResponseEntity<>(searchFlightDetailsBasedOnBoarding,HttpStatus.OK);
 			}
 			
 			if(sortParam.equals(flightdetails.getDestination())){
 				List<FlightDetails> searchFlightDetailsBasedOnDestination = searchFlightService.searchFlightDetailsBasedOnDestination();
-				return new ResponseEntity<List<FlightDetails>>(searchFlightDetailsBasedOnDestination,HttpStatus.OK);
+				return new ResponseEntity<>(searchFlightDetailsBasedOnDestination,HttpStatus.OK);
 			}
 			
 			if(sortParam.equals(flightdetails.getDateOfJourney().toString())){
 				List<FlightDetails> searchFlightDetailsBasedOnDateOfJourney = searchFlightService.searchFlightDetailsBasedOnDateOfJourney();
-				return new ResponseEntity<List<FlightDetails>>(searchFlightDetailsBasedOnDateOfJourney, HttpStatus.OK);
+				return new ResponseEntity<>(searchFlightDetailsBasedOnDateOfJourney, HttpStatus.OK);
 			}
 			if(sortParam.equals(flightdetails.getTimeOfJourney().toString())){
 				List<FlightDetails> searchFlightDetailsBasedOnTimeOfJourney = searchFlightService.searchFlightDetailsBasedOnTimeOfJourney();
-				return new ResponseEntity<List<FlightDetails>>(searchFlightDetailsBasedOnTimeOfJourney, HttpStatus.OK);
+				return new ResponseEntity<>(searchFlightDetailsBasedOnTimeOfJourney, HttpStatus.OK);
 			}
 			
 			if(sortParam.equals(String.valueOf(flightdetails.getPrice()))){
 				List<FlightDetails> searchFlightDetailsBasedOnPrice = searchFlightService.searchFlightDetailsBasedOnPrice();
-				return new ResponseEntity<List<FlightDetails>>(searchFlightDetailsBasedOnPrice, HttpStatus.OK);
+				return new ResponseEntity<>(searchFlightDetailsBasedOnPrice, HttpStatus.OK);
 			}
 			
 			if(sortParam.equals(String.valueOf(flightdetails.getDuration()))){
 				List<FlightDetails> searchFlightDetailsBasedOnDuration = searchFlightService.searchFlightDetailsBasedOnDuration();
-				return new ResponseEntity<List<FlightDetails>>(searchFlightDetailsBasedOnDuration, HttpStatus.OK);
+				return new ResponseEntity<>(searchFlightDetailsBasedOnDuration, HttpStatus.OK);
 			}
 			
 		}
@@ -86,7 +86,7 @@ public class SearchFlightController {
 			
 		}
 		
-		return new ResponseEntity<List<FlightDetails>>(flightDetails, HttpStatus.OK);
+		return new ResponseEntity<>(flightDetails, HttpStatus.OK);
 		
 	}
 	
