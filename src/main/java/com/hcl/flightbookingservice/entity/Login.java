@@ -7,6 +7,18 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.hcl.flightbookingservice.domain.LoginDTO;
+
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
+@Data
+@Getter
+@Setter
+
+
 @Entity
 @Table(name = "logindetails")
 public class Login {
@@ -21,6 +33,18 @@ public class Login {
 
 	@Column(name = "password")
 	private String password;
+	
+	
+	@Column(name = "role")
+	private String role;
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
 
 	public String getUserName() {
 		return userName;
@@ -48,7 +72,8 @@ public class Login {
 
 	@Override
 	public String toString() {
-		return "Login [loginId=" + loginId + ", userName=" + userName + "]";
+		return "Login [loginId=" + loginId + ", userName=" + userName + ", role=" + role + "]";
 	}
 
+	
 }
