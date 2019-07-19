@@ -1,70 +1,28 @@
-package com.hcl.flightbookingservice.entity;
-
+package com.hcl.flightbookingservice.domain;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
-@Entity
-@Table(name="flight_details")
-public class FlightDetails {
+public class FlightDetailsDTO {
+
 	
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long id;
-	
-	@Column(name="flight_id")
-	private String flightId;
-	
-		
-	@Column(name="flight_name")
 	private String  flightName;
 
-
-	@Column(name="boarding")
 	private String boarding;
-	
-	@Column(name="destination")
+
 	private String destination;
-	
-	@Column(name="date_of_journey")
+
 	private LocalDate dateOfJourney;
 	
-	@Column(name="time_of_journey")
 	private LocalTime timeOfJourney;
 	
-	@Column(name="price")
 	private Double price;
-	
-	@Column(name="duration")
+
 	private Double duration;
 	
-	@Column(name="available_seats")
 	private Integer availableSeats;
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-
 	
-	public String getFlightId() {
-		return flightId;
-	}
-
-	public void setFlightId(String flightId) {
-		this.flightId = flightId;
-	}
 
 	public String getFlightName() {
 		return flightName;
@@ -113,7 +71,7 @@ public class FlightDetails {
 	public void setPrice(Double price) {
 		this.price = price;
 	}
-	
+
 	public Double getDuration() {
 		return duration;
 	}
@@ -121,21 +79,22 @@ public class FlightDetails {
 	public void setDuration(Double duration) {
 		this.duration = duration;
 	}
-	
-	public Integer getAvailableFlights() {
+
+	public Integer getAvailableSeats() {
 		return availableSeats;
 	}
 
-	public void setAvailableFlights(Integer availableSeats) {
+	public void setAvailableSeats(Integer availableSeats) {
 		this.availableSeats = availableSeats;
 	}
 
 	@Override
 	public String toString() {
-		return "FlightDetails [id=" + id + ", flightId=" + flightId + ", flightName=" + flightName + ", boarding="
-				+ boarding + ", destination=" + destination + ", dateOfJourney=" + dateOfJourney + ", timeOfJourney="
-				+ timeOfJourney + ", price=" + price + ", duration=" + duration + ", availableSeats="
-				+ availableSeats + "]";
+		return "FlightDetailsDTO [flightName=" + flightName + ", boarding=" + boarding + ", destination=" + destination
+				+ ", dateOfJourney=" + dateOfJourney + ", timeOfJourney=" + timeOfJourney + ", price=" + price
+				+ ", duration=" + duration + ", availableSeats=" + availableSeats + "]";
 	}
+	
+	
 
 }
