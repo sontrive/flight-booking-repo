@@ -34,9 +34,9 @@ public class LoginController {
 		if (null != userDetails && !"".equals(userDetails.getUserName()) && !"".equals(userDetails.getPassword())) {
 			boolean status = loginSrevice.validateUser(userDetails);
 			if (status)
-				return new ResponseEntity<String>("Login Successful", HttpStatus.OK);
+				return new ResponseEntity<>("Login Successful", HttpStatus.OK);
 		}
-		return new ResponseEntity<String>("Login Failed. Please enter Valid Credentials...", HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<>("Login Failed. Please enter Valid Credentials...", HttpStatus.BAD_REQUEST);
 
 	}
 }
