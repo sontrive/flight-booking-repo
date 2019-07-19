@@ -1,6 +1,8 @@
 package com.hcl.flightbookingservice.entity;
 
-import java.time.LocalDateTime;
+import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -15,9 +17,16 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 @Entity
 @Table(name = "booking_details")
-public class BookingDetails {
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,property = "booking_id")
+public class BookingDetails implements Serializable{
+
+	
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@Column(name = "booking_id")
@@ -31,6 +40,13 @@ public class BookingDetails {
 	@NotNull
 	@Column(name = "flight_id")
 	private String flightId;
+	
+	@NotNull
+	@Column(name="flight_name")
+	private String  flightName;
+	
+	@Column(name="duration")
+	private Double duration;
 
 	@NotNull
 	@OneToOne
@@ -55,8 +71,12 @@ public class BookingDetails {
 	private String departure;
 
 	@NotNull
-	@Column(name = "travel_date_time")
-	private LocalDateTime travelDateTime;
+	@Column(name = "travelDate")
+	private LocalDate travelDate;
+
+	@NotNull
+	@Column(name = "travelTime")
+	private LocalTime travelTime;
 
 	public Long getId() {
 		return id;
@@ -114,7 +134,6 @@ public class BookingDetails {
 		this.departure = departure;
 	}
 
-
 	public Login getLogin() {
 		return login;
 	}
@@ -123,23 +142,47 @@ public class BookingDetails {
 		this.login = login;
 	}
 
-	public LocalDateTime getTravelDateTime() {
-		return travelDateTime;
+	public LocalDate getTravelDate() {
+		return travelDate;
 	}
 
-	public void setTravelDateTime(LocalDateTime travelDateTime) {
-		this.travelDateTime = travelDateTime;
+	public void setTravelDate(LocalDate travelDate) {
+		this.travelDate = travelDate;
+	}
+
+	public LocalTime getTravelTime() {
+		return travelTime;
+	}
+
+	public void setTravelTime(LocalTime travelTime) {
+		this.travelTime = travelTime;
+	}
+
+	public String getFlightName() {
+		return flightName;
+	}
+
+	public void setFlightName(String flightName) {
+		this.flightName = flightName;
+	}
+	public Double getDuration() {
+		return duration;
+	}
+
+	public void setDuration(Double duration) {
+		this.duration = duration;
 	}
 
 	@Override
 	public String toString() {
 		final int maxLen = 10;
-		return "BookingDetails [id=" + id + ", ticketId=" + ticketId + ", flightId=" + flightId + ", login=" + login
-				+ ", price=" + price + ", travellerDetails="
+		return "BookingDetails [id=" + id + ", ticketId=" + ticketId + ", flightId=" + flightId + ", flightName="
+				+ flightName + ", duration=" + duration + ", login=" + login + ", price=" + price
+				+ ", travellerDetails="
 				+ (travellerDetails != null ? travellerDetails.subList(0, Math.min(travellerDetails.size(), maxLen))
 						: null)
-				+ ", arrival=" + arrival + ", departure=" + departure + ", travelDateTime=" + travelDateTime + "]";
+				+ ", arrival=" + arrival + ", departure=" + departure + ", travelDate=" + travelDate + ", travelTime="
+				+ travelTime + "]";
 	}
-
 	
 }

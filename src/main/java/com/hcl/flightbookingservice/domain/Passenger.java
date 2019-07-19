@@ -2,7 +2,7 @@ package com.hcl.flightbookingservice.domain;
 
 import javax.validation.constraints.NotNull;
 
-public class Person {
+public class Passenger {
 
 	@NotNull(message = "Traveller Name is missing.")
 	private String travellerName;
