@@ -38,7 +38,7 @@ public class NewFlightStatusServiceTest {
 		newFlightRequestStatus.setDestination("Kota");
 		newFlightRequestStatus.setFlightId("ARV-231");
 		newFlightRequestStatus.setFlightName("Air Vistara");
-		when(newFlightStatusRepository.save(newFlightStatus)).thenReturn(new NewFlightStatus());
+		//when(newFlightStatusRepository.save(newFlightStatus)).thenReturn(new NewFlightStatus());
 		Assert.assertNotNull(newFlightStatusService.addNewFlightRequest(newFlightRequestStatus));
 	}
 	
@@ -46,7 +46,7 @@ public class NewFlightStatusServiceTest {
 	public void addNewFlightRequestIfNewFlightRequestIsIncorrect() {
 		
 		NewFlightStatus newFlightStatus = new NewFlightStatus();
-		//when(newFlightStatusRepository.save(newFlightStatus)).thenReturn(null);
+		when(newFlightStatusRepository.save(newFlightStatus)).thenReturn(null);
 		Assert.assertNotNull(newFlightStatusService.addNewFlightRequest(newFlightRequestStatus));
 	}
 
