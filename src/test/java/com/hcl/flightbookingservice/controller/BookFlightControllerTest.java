@@ -29,25 +29,25 @@ public class BookFlightControllerTest {
 	@Mock
 	BookFlightService bookFlightServiceMock;
 	
-	BookFlightRequest bookFlightRequest;
+	BookFlightResponse bookFlightResponse;
 	
 	@Before
 	public void setUp() {
-		bookFlightRequest = new BookFlightRequest();
-		bookFlightRequest.setArrival("Pune");
-		bookFlightRequest.setDeparture("Mumbai");
-		bookFlightRequest.setFlightId("1234");
-		bookFlightRequest.setNumberOfPerson(2);
-		bookFlightRequest.setTravelDateTime(LocalDateTime.of(2019, 7, 3, 3, 30));
-		bookFlightRequest.setUserName("sagar");
-		bookFlightRequest.setFlightName("AirIndia");
+		bookFlightResponse = new BookFlightRequest();
+		bookFlightResponse.setArrival("Pune");
+		bookFlightResponse.setDeparture("Mumbai");
+		bookFlightResponse.setFlightId("1234");
+		bookFlightResponse.setNumberOfPerson(2);
+		bookFlightResponse.setTravelDateTime(LocalDateTime.of(2019, 7, 3, 3, 30));
+		bookFlightResponse.setUserName("sagar");
+		bookFlightResponse.setFlightName("AirIndia");
 	}
 	
 	@Test
-	public void testBookFlight() {
+	public void testBookFlight() throws ApplicationException {
 		BookFlightResponse bookFlightResponse = new BookFlightResponse();
-		Mockito.when(bookFlightServiceMock.bookFlight(bookFlightRequest)).thenReturn(bookFlightResponse);
-		ResponseEntity<?> bookFlight = bookFlightController.bookFlight(bookFlightRequest);
+		Mockito.when(bookFlightServiceMock.bookFlight(bookFlightResponse)).thenReturn(bookFlightResponse);
+		ResponseEntity<?> bookFlight = bookFlightController.bookFlight(bookFlightResponse);
 		
 		assertNotNull(bookFlight);
 		assertEquals(200, bookFlight.getStatusCodeValue());

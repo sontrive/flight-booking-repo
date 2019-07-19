@@ -1,4 +1,4 @@
-package com.hcl.flightbookingservice.controller;
+package com.hcl.flightbookingservice.service;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -16,6 +16,7 @@ import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.http.ResponseEntity;
 
+import com.hcl.flightbookingservice.controller.BookFlightController;
 import com.hcl.flightbookingservice.domain.BookFlightRequest;
 import com.hcl.flightbookingservice.domain.BookFlightResponse;
 import com.hcl.flightbookingservice.exception.ApplicationException;
