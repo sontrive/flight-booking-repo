@@ -26,7 +26,9 @@ public class LoginControllerTest {
 	LoginService loginServiceMock;
 
 	LoginDTO userLogin;
+
 	LoginDTO userLoginEmpty;
+
 
 	@Before
 	public void setUp() {
