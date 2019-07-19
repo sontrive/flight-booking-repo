@@ -1,5 +1,7 @@
 package com.hcl.flightbookingservice.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,37 +12,40 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 @Entity
 @Table(name = "traveller_details")
-public class TravellerDetails {
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "traveller_id")
+public class TravellerDetails implements Serializable{
 
+	
+	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@Column(name = "traveller_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	
+
 	@NotNull
 	@Column(name = "traveller_name")
 	private String travellerName;
-	
-	
+
 	@NotNull
 	@Column(name = "traveller_age")
 	private Integer travellerAge;
-	
-	
+
 	@NotNull
 	@Column(name = "traveller_meal_pref")
 	private String travellerMealPref;
-	
-	
+
 	@NotNull
 	@Column(name = "traveller_gender")
 	private String travellerGender;
-	
+
 	@ManyToOne
-	@JoinColumn(name="booking_id", nullable=false)
+	@JoinColumn(name = "booking_id")
 	private BookingDetails bookingDetails;
 
 	public Long getId() {
@@ -83,13 +88,19 @@ public class TravellerDetails {
 		this.travellerGender = travellerGender;
 	}
 
+	public BookingDetails getBookingDetails() {
+		return bookingDetails;
+	}
+
+	public void setBookingDetails(BookingDetails bookingDetails) {
+		this.bookingDetails = bookingDetails;
+	}
+
 	@Override
 	public String toString() {
-		return "TravalerDetails [id=" + id + ", travellerName=" + travellerName + ", travellerAge=" + travellerAge
+		return "TravellerDetails [id=" + id + ", travellerName=" + travellerName + ", travellerAge=" + travellerAge
 				+ ", travellerMealPref=" + travellerMealPref + ", travellerGender=" + travellerGender
 				+ ", bookingDetails=" + bookingDetails + "]";
 	}
-	
-	
 
 }

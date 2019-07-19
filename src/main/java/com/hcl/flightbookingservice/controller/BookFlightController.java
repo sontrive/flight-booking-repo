@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.hcl.flightbookingservice.domain.BookFlightRequest;
 import com.hcl.flightbookingservice.domain.BookFlightResponse;
+import com.hcl.flightbookingservice.exception.ApplicationException;
 import com.hcl.flightbookingservice.service.BookFlightService;
 
 @RestController
@@ -30,6 +31,9 @@ public class BookFlightController {
 		BookFlightResponse bookFlight = null;
 		try {
 			bookFlight = bookFlightService.bookFlight(bookFlightRequest);
+		}
+		catch (ApplicationException ex) {
+			return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
 		}
 		catch (Exception e) {
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);

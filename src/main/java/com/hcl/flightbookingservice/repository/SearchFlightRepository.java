@@ -11,10 +11,6 @@ import com.hcl.flightbookingservice.entity.FlightDetails;
 public interface SearchFlightRepository extends JpaRepository<FlightDetails,Long> {
 	
 	public List<FlightDetails> findByOrderByFlightNameAsc();
-
-	public List<FlightDetails> findByOrderByBoardingAsc();
-	
-	public List<FlightDetails> findByOrderByDestinationAsc();
 	
 	public List<FlightDetails> findByOrderByDateOfJourneyAsc();
 	
@@ -25,6 +21,10 @@ public interface SearchFlightRepository extends JpaRepository<FlightDetails,Long
 	public List<FlightDetails> findByOrderByDurationAsc();
 	
 	public  FlightDetails findByflightId(String flightId );
+	
+	public List<FlightDetails> findByOrderByAvailableSeatsAsc();
+	
+	
 	
 
 }

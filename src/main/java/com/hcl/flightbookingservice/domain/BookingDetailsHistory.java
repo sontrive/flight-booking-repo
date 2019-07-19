@@ -1,6 +1,6 @@
 package com.hcl.flightbookingservice.domain;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
@@ -20,7 +20,7 @@ public class BookingDetailsHistory {
 	
 	private String departure;
 	
-	private LocalDateTime  travelDateTime;
+	private LocalDate  travelDate;
 	
 	private LocalTime  travelTime;
 
@@ -80,12 +80,12 @@ public class BookingDetailsHistory {
 		this.departure = departure;
 	}
 
-	public LocalDateTime getTravelDateTime() {
-		return travelDateTime;
+	public LocalDate getTravelDate() {
+		return travelDate;
 	}
 
-	public void setTravelDateTime(LocalDateTime travelDateTime) {
-		this.travelDateTime = travelDateTime;
+	public void setTravelDate(LocalDate travelDate) {
+		this.travelDate = travelDate;
 	}
 	
 }

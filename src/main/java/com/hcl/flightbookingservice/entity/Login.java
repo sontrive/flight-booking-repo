@@ -7,9 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.hcl.flightbookingservice.domain.LoginDTO;
-
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
