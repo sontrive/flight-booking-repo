@@ -1,15 +1,17 @@
 package com.hcl.flightbookingservice.service;
 
+
+
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.when;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
+
 import org.mockito.junit.MockitoJUnitRunner;
 
 import com.hcl.flightbookingservice.domain.LoginDTO;
@@ -38,16 +40,17 @@ public class LoginServiceTest {
 		userLogin.setPassword("sagar");
 
 	}
-	
-	/*
-	 * @Test public void testValidateGC() { userDetails = new Login();
-	 * userDetails.setUserName("abc123"); userDetails.setPassword("sagar");
-	 * when(loginRepositoryMock.findByUserName(userLogin.getUserName())).thenReturn(
-	 * userDetails); boolean validateUser = loginService.validateUser(userLogin);
-	 * assertNotNull(validateUser);
-	 * 
-	 * }
-	 * 
-	 */
+
+	@Test
+	public void testValidateGC() {
+		userDetails = new Login();
+		userDetails.setUserName("abc123");
+		userDetails.setPassword("sagar");
+		when(loginRepositoryMock.findByUserName(userLogin.getUserName())).thenReturn(userDetails);
+		String validateUser = loginService.validateUser(userLogin);
+		//assertEquals(200, validateUser.getStatusCodeValue());
+		
+	}
+	 
 	
 }

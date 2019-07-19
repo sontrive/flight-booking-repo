@@ -122,11 +122,12 @@ public class FlightDetails {
 		this.duration = duration;
 	}
 	
-	public Integer getAvailableFlights() {
+	
+	public Integer getAvailableSeats() {
 		return availableSeats;
 	}
 
-	public void setAvailableFlights(Integer availableSeats) {
+	public void setAvailableSeats(Integer availableSeats) {
 		this.availableSeats = availableSeats;
 	}
 

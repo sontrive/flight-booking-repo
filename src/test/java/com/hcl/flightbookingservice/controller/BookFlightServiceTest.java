@@ -24,25 +24,19 @@ import com.hcl.flightbookingservice.service.BookFlightService;
 @RunWith(MockitoJUnitRunner.class)
 public class BookFlightServiceTest {
 
-	
-	@InjectMocks
-	BookFlightController bookFlightController;
-
-	@Mock
-	BookFlightService bookFlightServiceMock;
-	
-	BookFlightRequest bookFlightRequest;
-	
 	/*
-	 * @Before public void setUp() { bookFlightRequest = new BookFlightRequest();
-	 * bookFlightRequest.setArrival("Pune");
-	 * bookFlightRequest.setDeparture("Mumbai");
-	 * bookFlightRequest.setFlightId("1234");
-	 * bookFlightRequest.setNumberOfPerson(2);
-	 * bookFlightRequest.setTravelDate(LocalDate.of(2019, 7, 3));
-	 * bookFlightRequest.setTravelTime(LocalTime.of(3, 30));
-	 * bookFlightRequest.setUserName("sagar");
-	 * bookFlightRequest.setFlightName("AirIndia"); }
+	 * 
+	 * 
+	 * @InjectMocks BookFlightController bookFlightController;
+	 * 
+	 * @Mock BookFlightService bookFlightServiceMock;
+	 * 
+	 * BookFlightRequest bookFlightRequest;
+	 * 
+	 * @Before public void setUp() {
+	 * 
+	 * }
+
 	 * 
 	 * @Test public void testBookFlight() { BookFlightResponse bookFlightResponse =
 	 * new BookFlightResponse();
@@ -66,5 +60,6 @@ public class BookFlightServiceTest {
 	 * bookFlightResponse.setTravelTime(LocalTime.of(3, 30)); return
 	 * bookFlightResponse; }
 	 * 
+
 	 */	
 }

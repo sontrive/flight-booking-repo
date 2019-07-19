@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,19 +41,26 @@ public class BookFlightService {
 
 		BookFlightResponse bookFlightResponse = new BookFlightResponse();
 		
+		List<Passenger> personList = bookFlightRequest.getPassenger();
 		BookingDetails bookingDetails = new BookingDetails();
 		bookingDetails.setFlightId(bookFlightRequest.getFlightId());
 
 		Login savedLogin = loginRepository.findByUserName(bookFlightRequest.getUserName());
 		Login login = new Login();
-		BeanUtils.copyProperties(savedLogin, login);
+		login.setLoginId(savedLogin.getLoginId());
+		login.setPassword(savedLogin.getPassword());
+		login.setRole(savedLogin.getRole());
+		login.setUserName(savedLogin.getUserName());
 		bookingDetails.setLogin(login);
 
 		FlightDetails flightDetails = searchFlightRepository.findByflightId(bookFlightRequest.getFlightId());
-		//check for availbale seats.
+		if(flightDetails.getAvailableSeats() - personList.size() <0) {
+			throw new ApplicationException("Required number of seats are not available.");
+		}
 		
+		flightDetails.setAvailableSeats(flightDetails.getAvailableSeats() - personList.size());
+		searchFlightRepository.save(flightDetails);
 		
-		List<Passenger> personList = bookFlightRequest.getPassenger();
 		Double price = personList.size() * flightDetails.getPrice();
 		bookingDetails.setPrice(price);
 
@@ -64,13 +70,17 @@ public class BookFlightService {
 		bookingDetails.setTravelTime(flightDetails.getTimeOfJourney());
 		bookingDetails.setDuration(flightDetails.getDuration());
 		bookingDetails.setFlightName(flightDetails.getFlightName());
-		
+		bookingDetails.setDeparture(flightDetails.getBoarding());
+		bookingDetails.setArrival(flightDetails.getDestination());
 		
 		List<TravellerDetails> travellerDetailsList = new ArrayList<>();
 		
 		for (Passenger person : personList) {
 			TravellerDetails travellerDetails = new TravellerDetails();
-			BeanUtils.copyProperties(person, travellerDetails);
+			travellerDetails.setTravellerAge(person.getTravellerAge());
+			travellerDetails.setTravellerGender(person.getTravellerGender());
+			travellerDetails.setTravellerMealPref(person.getTravellerMealPref());
+			travellerDetails.setTravellerName(person.getTravellerName());
 			travellerDetails.setBookingDetails(bookingDetails);
 			travellerDetailsList.add(travellerDetails);
 		}
@@ -78,8 +88,30 @@ public class BookFlightService {
 		BookingDetails saveBookingDetails = bookingDetailsRepository.save(bookingDetails);
 
 		//creating response
-		BeanUtils.copyProperties(saveBookingDetails, bookFlightResponse);
+		bookFlightResponse.setArrival(saveBookingDetails.getArrival());
+		bookFlightResponse.setDeparture(saveBookingDetails.getDeparture());
+		bookFlightResponse.setFlightId(saveBookingDetails.getFlightId());
+		bookFlightResponse.setFlightName(saveBookingDetails.getFlightName());
 		bookFlightResponse.setNumberOfPerson(personList.size());
+		
+		List<TravellerDetails> savedTravellerDetailsList = saveBookingDetails.getTravellerDetails();
+		List<Passenger> savedPersonList = new ArrayList<>();
+		
+		for (TravellerDetails travellerDetails : savedTravellerDetailsList) {
+			
+			Passenger passenger = new Passenger();
+			passenger.setTravellerAge(travellerDetails.getTravellerAge());
+			passenger.setTravellerGender(travellerDetails.getTravellerGender());
+			passenger.setTravellerMealPref(travellerDetails.getTravellerMealPref());
+			passenger.setTravellerName(travellerDetails.getTravellerName());
+			savedPersonList.add(passenger);
+		}
+		
+		bookFlightResponse.setPassenger(savedPersonList);
+		bookFlightResponse.setTicketId(saveBookingDetails.getTicketId());
+		bookFlightResponse.setTotalTravelDuration(saveBookingDetails.getDuration());
+		bookFlightResponse.setTravelTime(saveBookingDetails.getTravelTime());
+		
 		System.out.println(bookFlightResponse);
 		return bookFlightResponse;
 	}
