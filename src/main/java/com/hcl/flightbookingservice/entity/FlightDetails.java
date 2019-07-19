@@ -40,10 +40,10 @@ public class FlightDetails {
 	private LocalTime timeOfJourney;
 	
 	@Column(name="price")
-	private double price;
+	private Double price;
 	
 	@Column(name="duration")
-	private double duration;
+	private Double duration;
 
 	public long getId() {
 		return id;
@@ -103,19 +103,19 @@ public class FlightDetails {
 		this.timeOfJourney = timeOfJourney;
 	}
 
-	public double getPrice() {
+	public Double getPrice() {
 		return price;
 	}
 
-	public void setPrice(double price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
 	
-	public double getDuration() {
+	public Double getDuration() {
 		return duration;
 	}
 
-	public void setDuration(double duration) {
+	public void setDuration(Double duration) {
 		this.duration = duration;
 	}
 

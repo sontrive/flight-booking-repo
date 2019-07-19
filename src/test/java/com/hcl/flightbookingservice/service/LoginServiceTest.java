@@ -4,6 +4,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.when;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -37,18 +38,15 @@ public class LoginServiceTest {
 
 	}
 	
-	
-	@Test
-	public void testValidateGC() {
-		userDetails = new Login();
-		userDetails.setUserName("abc123");
-		userDetails.setPassword("sagar");
-		when(loginRepositoryMock.findByUserName(userLogin.getUserName())).thenReturn(userDetails);
-		boolean validateUser = loginService.validateUser(userLogin);
-	    assertNotNull(validateUser);
-	
-	}
-	
-
+	/*
+	 * @Test public void testValidateGC() { userDetails = new Login();
+	 * userDetails.setUserName("abc123"); userDetails.setPassword("sagar");
+	 * when(loginRepositoryMock.findByUserName(userLogin.getUserName())).thenReturn(
+	 * userDetails); boolean validateUser = loginService.validateUser(userLogin);
+	 * assertNotNull(validateUser);
+	 * 
+	 * }
+	 * 
+	 */
 	
 }

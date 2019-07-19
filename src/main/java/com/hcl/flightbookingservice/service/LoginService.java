@@ -18,13 +18,15 @@ public class LoginService {
 	 *                    database table login details
 	 * @return the user is valid or not after check
 	 */
-	public boolean validateUser(LoginDTO userDetails) {
+	public String validateUser(LoginDTO userDetails) {
 
 		Login user = loginRepository.findByUserName(userDetails.getUserName());
-		if (user != null && user.getUserName().equals(userDetails.getUserName())
+		String getRole = user.getRole();
+		
+		if (null != user && user.getUserName().equals(userDetails.getUserName())
 				&& user.getPassword().equals(userDetails.getPassword()))
-			return true;
-		return false;
+			return getRole;
+		return "invalid user Credentials" ;
 	}
 
 }
