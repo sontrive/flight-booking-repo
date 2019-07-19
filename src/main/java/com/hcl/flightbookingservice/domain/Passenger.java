@@ -2,6 +2,15 @@ package com.hcl.flightbookingservice.domain;
 
 import javax.validation.constraints.NotNull;
 
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Data
+@Getter
+@Setter
+@NoArgsConstructor
 public class Passenger {
 
 	@NotNull(message = "Traveller Name is missing.")
@@ -15,39 +24,5 @@ public class Passenger {
 	
 	@NotNull(message = "Traveller Gender is missing.")
 	private String travellerGender;
-
-	public String getTravellerName() {
-		return travellerName;
-	}
-
-	public void setTravellerName(String travellerName) {
-		this.travellerName = travellerName;
-	}
-
-	public Integer getTravellerAge() {
-		return travellerAge;
-	}
-
-	public void setTravellerAge(Integer travellerAge) {
-		this.travellerAge = travellerAge;
-	}
-
-	public String getTravellerMealPref() {
-		return travellerMealPref;
-	}
-
-	public void setTravellerMealPref(String travellerMealPref) {
-		this.travellerMealPref = travellerMealPref;
-	}
-
-	public String getTravellerGender() {
-		return travellerGender;
-	}
-
-	public void setTravellerGender(String travellerGender) {
-		this.travellerGender = travellerGender;
-	}
-	
-	
 	
 }
