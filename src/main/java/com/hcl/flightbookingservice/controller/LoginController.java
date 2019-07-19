@@ -32,7 +32,8 @@ public class LoginController {
 	 */
 	@PostMapping(value = "/validate")
 	public ResponseEntity<String> validateUser(@RequestBody LoginDTO userDetails) {
-		if (ObjectUtils.isEmpty(userDetails) && !"".equals(userDetails.getUserName()) && !"".equals(userDetails.getPassword())) {
+		if (!ObjectUtils.isEmpty(userDetails) && !"".equals(userDetails.getUserName()) && !"".equals(userDetails.getPassword())
+				&& !(null == userDetails.getUserName()) && !(null == userDetails.getPassword())) {
 			String role = loginSrevice.validateUser(userDetails);
 			if(!"invalid user Credentials".equalsIgnoreCase(role)) {
 				String user = "Login Successful..Welcome" ; 

@@ -33,42 +33,38 @@ public class BookFlightServiceTest {
 	
 	BookFlightRequest bookFlightRequest;
 	
-	@Before
-	public void setUp() {
-		bookFlightRequest = new BookFlightRequest();
-		bookFlightRequest.setArrival("Pune");
-		bookFlightRequest.setDeparture("Mumbai");
-		bookFlightRequest.setFlightId("1234");
-		bookFlightRequest.setNumberOfPerson(2);
-		bookFlightRequest.setTravelDate(LocalDate.of(2019, 7, 3));
-		bookFlightRequest.setTravelTime(LocalTime.of(3, 30));
-		bookFlightRequest.setUserName("sagar");
-		bookFlightRequest.setFlightName("AirIndia");
-	}
-	
-	@Test
-	public void testBookFlight() {
-		BookFlightResponse bookFlightResponse = new BookFlightResponse();
-		Mockito.when(bookFlightServiceMock.bookFlight(bookFlightRequest)).thenReturn(bookFlightResponse);
-		ResponseEntity<?> bookFlight = bookFlightController.bookFlight(bookFlightRequest);
-		
-		assertNotNull(bookFlight);
-		assertEquals(200, bookFlight.getStatusCodeValue());
-	}
-	
-	public BookFlightResponse creatBootFlightResponse(){
-		
-		BookFlightResponse bookFlightResponse = new BookFlightResponse();
-		bookFlightResponse.setArrival("Pune");
-		bookFlightResponse.setDeparture("Mumbai");
-		bookFlightResponse.setFlightId("1234");
-		bookFlightResponse.setNumberOfPerson(2);
-		bookFlightResponse.setTicketId("12345");
-		bookFlightResponse.setTotalTravelDuration(2.0);
-		bookFlightResponse.setTravelDate(LocalDate.of(2019, 7, 3));
-		bookFlightResponse.setTravelTime(LocalTime.of(3, 30));
-		return bookFlightResponse;
-	}
-	
-	
+	/*
+	 * @Before public void setUp() { bookFlightRequest = new BookFlightRequest();
+	 * bookFlightRequest.setArrival("Pune");
+	 * bookFlightRequest.setDeparture("Mumbai");
+	 * bookFlightRequest.setFlightId("1234");
+	 * bookFlightRequest.setNumberOfPerson(2);
+	 * bookFlightRequest.setTravelDate(LocalDate.of(2019, 7, 3));
+	 * bookFlightRequest.setTravelTime(LocalTime.of(3, 30));
+	 * bookFlightRequest.setUserName("sagar");
+	 * bookFlightRequest.setFlightName("AirIndia"); }
+	 * 
+	 * @Test public void testBookFlight() { BookFlightResponse bookFlightResponse =
+	 * new BookFlightResponse();
+	 * Mockito.when(bookFlightServiceMock.bookFlight(bookFlightRequest)).thenReturn(
+	 * bookFlightResponse); ResponseEntity<?> bookFlight =
+	 * bookFlightController.bookFlight(bookFlightRequest);
+	 * 
+	 * assertNotNull(bookFlight); assertEquals(200,
+	 * bookFlight.getStatusCodeValue()); }
+	 * 
+	 * public BookFlightResponse creatBootFlightResponse(){
+	 * 
+	 * BookFlightResponse bookFlightResponse = new BookFlightResponse();
+	 * bookFlightResponse.setArrival("Pune");
+	 * bookFlightResponse.setDeparture("Mumbai");
+	 * bookFlightResponse.setFlightId("1234");
+	 * bookFlightResponse.setNumberOfPerson(2);
+	 * bookFlightResponse.setTicketId("12345");
+	 * bookFlightResponse.setTotalTravelDuration(2.0);
+	 * bookFlightResponse.setTravelDate(LocalDate.of(2019, 7, 3));
+	 * bookFlightResponse.setTravelTime(LocalTime.of(3, 30)); return
+	 * bookFlightResponse; }
+	 * 
+	 */	
 }
