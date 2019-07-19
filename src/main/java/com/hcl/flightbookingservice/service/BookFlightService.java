@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -89,7 +88,6 @@ public class BookFlightService {
 		BookingDetails saveBookingDetails = bookingDetailsRepository.save(bookingDetails);
 
 		//creating response
-		BeanUtils.copyProperties(saveBookingDetails, bookFlightResponse);
 		bookFlightResponse.setArrival(saveBookingDetails.getArrival());
 		bookFlightResponse.setDeparture(saveBookingDetails.getDeparture());
 		bookFlightResponse.setFlightId(saveBookingDetails.getFlightId());
