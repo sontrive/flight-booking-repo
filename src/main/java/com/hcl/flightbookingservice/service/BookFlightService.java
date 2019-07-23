@@ -112,7 +112,6 @@ public class BookFlightService {
 		bookFlightResponse.setTotalTravelDuration(saveBookingDetails.getDuration());
 		bookFlightResponse.setTravelTime(saveBookingDetails.getTravelTime());
 		
-		System.out.println(bookFlightResponse);
 		return bookFlightResponse;
 	}
 

@@ -15,8 +15,8 @@ import com.hcl.flightbookingservice.service.LoginService;
 /**
  * 
  * 
- * this controller is used to take the username and password from user and returns
- * either l0gin successful or not
+ * this controller is used to take the username and password from user and
+ * returns either l0gin successful or not
  *
  */
 @RestController
@@ -32,23 +32,20 @@ public class LoginController {
 	 */
 	@PostMapping(value = "/validate")
 	public ResponseEntity<String> validateUser(@RequestBody LoginDTO userDetails) {
-		if (!ObjectUtils.isEmpty(userDetails) && !"".equals(userDetails.getUserName()) && !"".equals(userDetails.getPassword())
-				&& !(null == userDetails.getUserName()) && !(null == userDetails.getPassword())) {
+		if (!ObjectUtils.isEmpty(userDetails) && !"".equals(userDetails.getUserName())
+				&& !"".equals(userDetails.getPassword()) && (null != userDetails.getUserName())
+				&& (null != userDetails.getPassword())) {
 			String role = loginSrevice.validateUser(userDetails);
-			if(!"invalid user Credentials".equalsIgnoreCase(role)) {
-				String user = "Login Successful..Welcome" ; 
-				if (role.equals("user"))
+			if (!"invalid user Credentials".equalsIgnoreCase(role)) {
+				String user = "Login Successful..Welcome";
+				if (role.equals("user") || role.equals("flight admin") || role.equals("super admin")) {
 					user += role;
-				else if (role.equals("flight admin"))
-					user += role;
-				else if (role.equals("super admin"))
-					user += role;
-				return new ResponseEntity<>(user, HttpStatus.OK);
+					return new ResponseEntity<>(user, HttpStatus.OK);
+				}
 			}
 		}
 		return new ResponseEntity<>("Login Failed. Please enter Valid Credentials...", HttpStatus.BAD_REQUEST);
 
 	}
-	
-	
+
 }

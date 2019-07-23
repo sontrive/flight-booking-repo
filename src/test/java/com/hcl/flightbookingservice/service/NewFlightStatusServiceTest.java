@@ -1,7 +1,5 @@
 package com.hcl.flightbookingservice.service;
 
-import static org.mockito.Mockito.when;
-
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -38,16 +36,7 @@ public class NewFlightStatusServiceTest {
 		newFlightRequestStatus.setDestination("Kota");
 		newFlightRequestStatus.setFlightId("ARV-231");
 		newFlightRequestStatus.setFlightName("Air Vistara");
-		//when(newFlightStatusRepository.save(newFlightStatus)).thenReturn(new NewFlightStatus());
 		Assert.assertNotNull(newFlightStatusService.addNewFlightRequest(newFlightRequestStatus));
 	}
 	
-	@Test
-	public void addNewFlightRequestIfNewFlightRequestIsIncorrect() {
-		
-		NewFlightStatus newFlightStatus = new NewFlightStatus();
-		when(newFlightStatusRepository.save(newFlightStatus)).thenReturn(null);
-		Assert.assertNotNull(newFlightStatusService.addNewFlightRequest(newFlightRequestStatus));
-	}
-
 }

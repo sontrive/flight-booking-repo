@@ -25,9 +25,8 @@ public class NewFlightStatusController {
 				&& !isNullOrEmpty(newFlightRequestStatus.getDestination())
 				&& !isNullOrEmpty(newFlightRequestStatus.getFlightId())
 				&& !isNullOrEmpty(newFlightRequestStatus.getFlightName())) {
-			if ("new flight request submitted."
-					.equalsIgnoreCase(newFlightStatusService.addNewFlightRequest(newFlightRequestStatus)))
-				return new ResponseEntity<>("New Flight Request Submitted successfully", HttpStatus.ACCEPTED);
+			newFlightStatusService.addNewFlightRequest(newFlightRequestStatus);
+			return new ResponseEntity<>("New Flight Request Submitted successfully", HttpStatus.ACCEPTED);
 		}
 
 		return new ResponseEntity<>("Please enter valid details", HttpStatus.BAD_REQUEST);
@@ -35,9 +34,8 @@ public class NewFlightStatusController {
 	}
 
 	private boolean isNullOrEmpty(String value) {
-		if (null == value || "".equals(value))
-			return true;
-		return false;
+		return (null == value || "".equals(value));
+
 	}
 
 }

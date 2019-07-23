@@ -17,8 +17,7 @@ public class NewFlightStatusService {
 	public String addNewFlightRequest(NewFlightRequestStatus newFlightRequestStatus) {
 		NewFlightStatus newFlightStatus = new NewFlightStatus();
 		BeanUtils.copyProperties(newFlightRequestStatus, newFlightStatus);
-		if(null != newFlightStatusRepository.save(newFlightStatus))
-			return "new flight request submitted.";
-		return "new flight request error.";
+		newFlightStatusRepository.save(newFlightStatus);
+		return "new flight request submitted.";
 	}
 }

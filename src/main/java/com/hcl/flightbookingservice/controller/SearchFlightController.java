@@ -37,44 +37,44 @@ public class SearchFlightController {
 	 */
 	
 	@PostMapping("/")
-	public ResponseEntity<?> getFlightDetails(@RequestBody FlightDetailsDTO flightdetailsrequest,String sortParam) {
+	public ResponseEntity<Object> getFlightDetails(@RequestBody FlightDetailsDTO flightdetailsrequest,String sortParam) {
 
 		List<FlightDetails> flightDetails =null ;
 		try {
 			validateFields(flightdetailsrequest);
 			
 			if (sortParam == null ||"".equals(sortParam)) {
-				List<FlightDetails> searchFlightDetails=flightDetails= searchFlightService.searchFlightDetails();
+				List<FlightDetails> searchFlightDetails=searchFlightService.searchFlightDetails();
 				return new ResponseEntity<>(searchFlightDetails,HttpStatus.OK);
 			}
 			
 			if(sortParam.equalsIgnoreCase("flightname")){
 				List<FlightDetails> searchFlightDetailsBasedOnFlightName = searchFlightService.searchFlightDetailsBasedOnFlightName();
-				return new ResponseEntity<List<FlightDetails>>(searchFlightDetailsBasedOnFlightName, HttpStatus.OK);
+				return new ResponseEntity<>(searchFlightDetailsBasedOnFlightName, HttpStatus.OK);
 			}
 
 			if(sortParam.equalsIgnoreCase("dateofjourney")){
 				List<FlightDetails> searchFlightDetailsBasedOnDateOfJourney = searchFlightService.searchFlightDetailsBasedOnDateOfJourney();
-				return new ResponseEntity<List<FlightDetails>>(searchFlightDetailsBasedOnDateOfJourney, HttpStatus.OK);
+				return new ResponseEntity<>(searchFlightDetailsBasedOnDateOfJourney, HttpStatus.OK);
 			}
 			if(sortParam.equalsIgnoreCase("timeofjourney")){
 				List<FlightDetails> searchFlightDetailsBasedOnTimeOfJourney = searchFlightService.searchFlightDetailsBasedOnTimeOfJourney();
-				return new ResponseEntity<List<FlightDetails>>(searchFlightDetailsBasedOnTimeOfJourney, HttpStatus.OK);
+				return new ResponseEntity<>(searchFlightDetailsBasedOnTimeOfJourney, HttpStatus.OK);
 			}
 			
 			if(sortParam.equalsIgnoreCase("price")){
 				List<FlightDetails> searchFlightDetailsBasedOnPrice = searchFlightService.searchFlightDetailsBasedOnPrice();
-				return new ResponseEntity<List<FlightDetails>>(searchFlightDetailsBasedOnPrice, HttpStatus.OK);
+				return new ResponseEntity<>(searchFlightDetailsBasedOnPrice, HttpStatus.OK);
 			}
 			
 			if(sortParam.equalsIgnoreCase("duration")){
 				List<FlightDetails> searchFlightDetailsBasedOnDuration = searchFlightService.searchFlightDetailsBasedOnDuration();
-				return new ResponseEntity<List<FlightDetails>>(searchFlightDetailsBasedOnDuration, HttpStatus.OK);
+				return new ResponseEntity<>(searchFlightDetailsBasedOnDuration, HttpStatus.OK);
 			
 			}
 			if(sortParam.equalsIgnoreCase("availableseats")){
 				List<FlightDetails> searchFlightDetailsBasedOnAvailableSeats = searchFlightService.searchFlightDetailsBasedOnAvailableSeats();
-				return new ResponseEntity<List<FlightDetails>>(searchFlightDetailsBasedOnAvailableSeats, HttpStatus.OK);
+				return new ResponseEntity<>(searchFlightDetailsBasedOnAvailableSeats, HttpStatus.OK);
 			}
 			
 		

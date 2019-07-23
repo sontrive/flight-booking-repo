@@ -81,7 +81,7 @@ public class LoginControllerTest {
 		userLogin = new LoginDTO();
 		userLogin.setUserName(null);
 		userLogin.setPassword(null);
-		Mockito.when(loginServiceMock.validateUser(userLogin)).thenReturn("");
+		//Mockito.when(loginServiceMock.validateUser(userLogin)).thenReturn("");
 		ResponseEntity<String> validateUser = loginController.validateUser(userLogin);
 		assertNotNull(validateUser);
 		assertEquals(400, validateUser.getStatusCodeValue());
@@ -93,7 +93,7 @@ public class LoginControllerTest {
 		userLogin = new LoginDTO();
 		userLogin.setUserName(null);
 		userLogin.setPassword("abc");
-		Mockito.when(loginServiceMock.validateUser(userLogin)).thenReturn("");
+		//Mockito.when(loginServiceMock.validateUser(userLogin)).thenReturn("");
 		ResponseEntity<String> validateUser = loginController.validateUser(userLogin);
 		assertNotNull(validateUser);
 		assertEquals(400, validateUser.getStatusCodeValue());
@@ -105,7 +105,7 @@ public class LoginControllerTest {
 		userLogin = new LoginDTO();
 		userLogin.setUserName(null);
 		userLogin.setPassword("abc");
-		Mockito.when(loginServiceMock.validateUser(userLogin)).thenReturn("");
+	//	Mockito.when(loginServiceMock.validateUser(userLogin)).thenReturn("");
 		ResponseEntity<String> validateUser = loginController.validateUser(userLogin);
 		assertNotNull(validateUser);
 		assertEquals(400, validateUser.getStatusCodeValue());
@@ -116,7 +116,7 @@ public class LoginControllerTest {
 
 		userLoginEmpty = new LoginDTO();
 		
-		Mockito.when(loginServiceMock.validateUser(userLoginEmpty)).thenReturn("");
+	//	Mockito.when(loginServiceMock.validateUser(userLoginEmpty)).thenReturn("");
 		ResponseEntity<String> validateUser = loginController.validateUser(userLoginEmpty);
 		assertNotNull(validateUser);
 		assertEquals(400, validateUser.getStatusCodeValue());
